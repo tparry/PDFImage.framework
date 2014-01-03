@@ -1,0 +1,945 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C32452D818769D4000FBCF88 /* PDFImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32452D718769D4000FBCF88 /* PDFImage.framework */; };
+		C32452DC18769F2E00FBCF88 /* PDFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C32452DB18769F2E00FBCF88 /* PDFAppDelegate.m */; };
+		C32452ED1876A29900FBCF88 /* PDFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32452EA1876A29900FBCF88 /* PDFNavigationController.m */; };
+		C32452EE1876A29900FBCF88 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32452EC1876A29900FBCF88 /* PDFViewController.m */; };
+		C32452F31876A2C100FBCF88 /* PDFDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32452F21876A2C100FBCF88 /* PDFDemoListViewController.m */; };
+		C32452F61876A2D800FBCF88 /* PDFTableViewDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32452F51876A2D800FBCF88 /* PDFTableViewDemoViewController.m */; };
+		C32452F91876A3A600FBCF88 /* PDFImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C32452F81876A3A600FBCF88 /* PDFImageViewCell.m */; };
+		C32453061876A63100FBCF88 /* 0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FB1876A63100FBCF88 /* 0.pdf */; };
+		C32453071876A63100FBCF88 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FC1876A63100FBCF88 /* 1.pdf */; };
+		C32453081876A63100FBCF88 /* 2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FD1876A63100FBCF88 /* 2.pdf */; };
+		C32453091876A63100FBCF88 /* 3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FE1876A63100FBCF88 /* 3.pdf */; };
+		C324530A1876A63100FBCF88 /* 4.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FF1876A63100FBCF88 /* 4.pdf */; };
+		C324530B1876A63100FBCF88 /* 5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453001876A63100FBCF88 /* 5.pdf */; };
+		C324530C1876A63100FBCF88 /* 6.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453011876A63100FBCF88 /* 6.pdf */; };
+		C324530D1876A63100FBCF88 /* 7.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453021876A63100FBCF88 /* 7.pdf */; };
+		C324530E1876A63100FBCF88 /* 8.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453031876A63100FBCF88 /* 8.pdf */; };
+		C324530F1876A63100FBCF88 /* 9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453041876A63100FBCF88 /* 9.pdf */; };
+		C32453101876A63100FBCF88 /* 10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453051876A63100FBCF88 /* 10.pdf */; };
+		C32453121876A63600FBCF88 /* 11.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453111876A63600FBCF88 /* 11.pdf */; };
+		C32453151876A9E200FBCF88 /* PDFAnimationDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C32453141876A9E200FBCF88 /* PDFAnimationDemoViewController.m */; };
+		C32453161876CCE400FBCF88 /* 11.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453111876A63600FBCF88 /* 11.pdf */; };
+		C32453171876CDA000FBCF88 /* 0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FB1876A63100FBCF88 /* 0.pdf */; };
+		C32453181876CF8F00FBCF88 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FC1876A63100FBCF88 /* 1.pdf */; };
+		C32453191876CF8F00FBCF88 /* 2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FD1876A63100FBCF88 /* 2.pdf */; };
+		C324531A1876CF8F00FBCF88 /* 3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FE1876A63100FBCF88 /* 3.pdf */; };
+		C324531B1876CF8F00FBCF88 /* 4.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32452FF1876A63100FBCF88 /* 4.pdf */; };
+		C324531C1876CF8F00FBCF88 /* 5.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453001876A63100FBCF88 /* 5.pdf */; };
+		C324531D1876CF8F00FBCF88 /* 6.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453011876A63100FBCF88 /* 6.pdf */; };
+		C324531E1876CF8F00FBCF88 /* 7.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453021876A63100FBCF88 /* 7.pdf */; };
+		C324531F1876CF8F00FBCF88 /* 8.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453031876A63100FBCF88 /* 8.pdf */; };
+		C32453201876CF8F00FBCF88 /* 9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453041876A63100FBCF88 /* 9.pdf */; };
+		C32453211876CF8F00FBCF88 /* 10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453051876A63100FBCF88 /* 10.pdf */; };
+		C32453221876D4FF00FBCF88 /* PDFImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32452D718769D4000FBCF88 /* PDFImage.framework */; };
+		C3995280187694E100221C8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C399527F187694E100221C8A /* Foundation.framework */; };
+		C3995286187694E100221C8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3995284187694E100221C8A /* InfoPlist.strings */; };
+		C39952A2187695CD00221C8A /* PDFImageViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C399529A187695CD00221C8A /* PDFImageViewLayer.m */; };
+		C39952A3187695CD00221C8A /* PDFImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C399529B187695CD00221C8A /* PDFImage.m */; };
+		C39952A4187695CD00221C8A /* PDFImageOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = C399529C187695CD00221C8A /* PDFImageOptions.m */; };
+		C39952A5187695CD00221C8A /* PDFImageOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = C399529D187695CD00221C8A /* PDFImageOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C39952A6187695CD00221C8A /* PDFImageViewLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = C399529E187695CD00221C8A /* PDFImageViewLayer.h */; };
+		C39952A7187695CD00221C8A /* PDFImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C399529F187695CD00221C8A /* PDFImageView.m */; };
+		C39952A8187695CD00221C8A /* PDFImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = C39952A0187695CD00221C8A /* PDFImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C39952A9187695CD00221C8A /* PDFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = C39952A1187695CD00221C8A /* PDFImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3AED87C18769B430035F18E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C399527F187694E100221C8A /* Foundation.framework */; };
+		C3AED87E18769B430035F18E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AED87D18769B430035F18E /* CoreGraphics.framework */; };
+		C3AED88018769B430035F18E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AED87F18769B430035F18E /* UIKit.framework */; };
+		C3AED88618769B430035F18E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3AED88418769B430035F18E /* InfoPlist.strings */; };
+		C3AED88818769B430035F18E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AED88718769B430035F18E /* main.m */; };
+		C3AED88E18769B430035F18E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AED88D18769B430035F18E /* Images.xcassets */; };
+		C3AED89518769B430035F18E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AED89418769B430035F18E /* XCTest.framework */; };
+		C3AED89618769B430035F18E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C399527F187694E100221C8A /* Foundation.framework */; };
+		C3AED89718769B430035F18E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AED87F18769B430035F18E /* UIKit.framework */; };
+		C3AED89F18769B430035F18E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3AED89D18769B430035F18E /* InfoPlist.strings */; };
+		C3AED8A118769B430035F18E /* PDFImageDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AED8A018769B430035F18E /* PDFImageDemoTests.m */; };
+		C3CBB31B1876F7ED007A9620 /* locale.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3191876F7ED007A9620 /* locale.pdf */; };
+		C3CBB31F1876F822007A9620 /* PDFLocalizedDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CBB31E1876F822007A9620 /* PDFLocalizedDemoViewController.m */; };
+		C3CBB3291876FE3A007A9620 /* extension1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3261876FE3A007A9620 /* extension1.pdf */; };
+		C3CBB32A1876FE3A007A9620 /* extension2.PDF in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3271876FE3A007A9620 /* extension2.PDF */; };
+		C3CBB32B1876FE3A007A9620 /* extension3.PdF in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3281876FE3A007A9620 /* extension3.PdF */; };
+		C3CBB32C1876FE4A007A9620 /* locale.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3191876F7ED007A9620 /* locale.pdf */; };
+		C3CBB32D1876FE4F007A9620 /* extension1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3261876FE3A007A9620 /* extension1.pdf */; };
+		C3CBB32E1876FE4F007A9620 /* extension2.PDF in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3271876FE3A007A9620 /* extension2.PDF */; };
+		C3CBB32F1876FE4F007A9620 /* extension3.PdF in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3281876FE3A007A9620 /* extension3.PdF */; };
+		C3CBB331187700CD007A9620 /* tint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB330187700CD007A9620 /* tint.pdf */; };
+		C3CBB332187700CD007A9620 /* tint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB330187700CD007A9620 /* tint.pdf */; };
+		C3CBB3391877011B007A9620 /* PDFTintColorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CBB3381877011B007A9620 /* PDFTintColorDemoViewController.m */; };
+		C3CBB33A1877011B007A9620 /* PDFTintColorDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CBB3381877011B007A9620 /* PDFTintColorDemoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C32452D518769BDA00FBCF88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3995270187694E100221C8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C399527B187694E100221C8A;
+			remoteInfo = PDFImage;
+		};
+		C3AED89818769B430035F18E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3995270187694E100221C8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3AED87A18769B430035F18E;
+			remoteInfo = PDFImageDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C32452D718769D4000FBCF88 /* PDFImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFImage.framework; path = "../../Library/Developer/Xcode/DerivedData/PDFImage-dsswrlcyowqtxbasgqxvmkeoojqz/Build/Products/Debug-iphoneos/PDFImage.framework"; sourceTree = "<group>"; };
+		C32452DA18769F2E00FBCF88 /* PDFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAppDelegate.h; sourceTree = "<group>"; };
+		C32452DB18769F2E00FBCF88 /* PDFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAppDelegate.m; sourceTree = "<group>"; };
+		C32452E91876A29900FBCF88 /* PDFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFNavigationController.h; sourceTree = "<group>"; };
+		C32452EA1876A29900FBCF88 /* PDFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFNavigationController.m; sourceTree = "<group>"; };
+		C32452EB1876A29900FBCF88 /* PDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFViewController.h; sourceTree = "<group>"; };
+		C32452EC1876A29900FBCF88 /* PDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
+		C32452F11876A2C100FBCF88 /* PDFDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDemoListViewController.h; sourceTree = "<group>"; };
+		C32452F21876A2C100FBCF88 /* PDFDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDemoListViewController.m; sourceTree = "<group>"; };
+		C32452F41876A2D800FBCF88 /* PDFTableViewDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFTableViewDemoViewController.h; sourceTree = "<group>"; };
+		C32452F51876A2D800FBCF88 /* PDFTableViewDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFTableViewDemoViewController.m; sourceTree = "<group>"; };
+		C32452F71876A3A600FBCF88 /* PDFImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageViewCell.h; sourceTree = "<group>"; };
+		C32452F81876A3A600FBCF88 /* PDFImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageViewCell.m; sourceTree = "<group>"; };
+		C32452FB1876A63100FBCF88 /* 0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 0.pdf; sourceTree = "<group>"; };
+		C32452FC1876A63100FBCF88 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 1.pdf; sourceTree = "<group>"; };
+		C32452FD1876A63100FBCF88 /* 2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 2.pdf; sourceTree = "<group>"; };
+		C32452FE1876A63100FBCF88 /* 3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 3.pdf; sourceTree = "<group>"; };
+		C32452FF1876A63100FBCF88 /* 4.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 4.pdf; sourceTree = "<group>"; };
+		C32453001876A63100FBCF88 /* 5.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 5.pdf; sourceTree = "<group>"; };
+		C32453011876A63100FBCF88 /* 6.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 6.pdf; sourceTree = "<group>"; };
+		C32453021876A63100FBCF88 /* 7.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 7.pdf; sourceTree = "<group>"; };
+		C32453031876A63100FBCF88 /* 8.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 8.pdf; sourceTree = "<group>"; };
+		C32453041876A63100FBCF88 /* 9.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 9.pdf; sourceTree = "<group>"; };
+		C32453051876A63100FBCF88 /* 10.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 10.pdf; sourceTree = "<group>"; };
+		C32453111876A63600FBCF88 /* 11.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 11.pdf; sourceTree = "<group>"; };
+		C32453131876A9E200FBCF88 /* PDFAnimationDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAnimationDemoViewController.h; sourceTree = "<group>"; };
+		C32453141876A9E200FBCF88 /* PDFAnimationDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAnimationDemoViewController.m; sourceTree = "<group>"; };
+		C399527C187694E100221C8A /* PDFImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = PDFImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C399527F187694E100221C8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3995283187694E100221C8A /* PDFImage-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImage-Info.plist"; sourceTree = "<group>"; };
+		C3995285187694E100221C8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3995287187694E100221C8A /* PDFImage-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PDFImage-Prefix.pch"; sourceTree = "<group>"; };
+		C399529A187695CD00221C8A /* PDFImageViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageViewLayer.m; sourceTree = "<group>"; };
+		C399529B187695CD00221C8A /* PDFImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImage.m; sourceTree = "<group>"; };
+		C399529C187695CD00221C8A /* PDFImageOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageOptions.m; sourceTree = "<group>"; };
+		C399529D187695CD00221C8A /* PDFImageOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageOptions.h; sourceTree = "<group>"; };
+		C399529E187695CD00221C8A /* PDFImageViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageViewLayer.h; sourceTree = "<group>"; };
+		C399529F187695CD00221C8A /* PDFImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageView.m; sourceTree = "<group>"; };
+		C39952A0187695CD00221C8A /* PDFImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageView.h; sourceTree = "<group>"; };
+		C39952A1187695CD00221C8A /* PDFImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImage.h; sourceTree = "<group>"; };
+		C39952AA187695FB00221C8A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		C3AED87B18769B430035F18E /* PDFImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3AED87D18769B430035F18E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C3AED87F18769B430035F18E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C3AED88318769B430035F18E /* PDFImageDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImageDemo-Info.plist"; sourceTree = "<group>"; };
+		C3AED88518769B430035F18E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3AED88718769B430035F18E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3AED88918769B430035F18E /* PDFImageDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PDFImageDemo-Prefix.pch"; sourceTree = "<group>"; };
+		C3AED88D18769B430035F18E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C3AED89318769B430035F18E /* PDFImageDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDFImageDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3AED89418769B430035F18E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C3AED89C18769B430035F18E /* PDFImageDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImageDemoTests-Info.plist"; sourceTree = "<group>"; };
+		C3AED89E18769B430035F18E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3AED8A018769B430035F18E /* PDFImageDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFImageDemoTests.m; sourceTree = "<group>"; };
+		C3CBB31A1876F7ED007A9620 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = es; path = es.lproj/locale.pdf; sourceTree = "<group>"; };
+		C3CBB31C1876F802007A9620 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = en; path = en.lproj/locale.pdf; sourceTree = "<group>"; };
+		C3CBB31D1876F822007A9620 /* PDFLocalizedDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFLocalizedDemoViewController.h; sourceTree = "<group>"; };
+		C3CBB31E1876F822007A9620 /* PDFLocalizedDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFLocalizedDemoViewController.m; sourceTree = "<group>"; };
+		C3CBB3261876FE3A007A9620 /* extension1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = extension1.pdf; sourceTree = "<group>"; };
+		C3CBB3271876FE3A007A9620 /* extension2.PDF */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = extension2.PDF; sourceTree = "<group>"; };
+		C3CBB3281876FE3A007A9620 /* extension3.PdF */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = extension3.PdF; sourceTree = "<group>"; };
+		C3CBB330187700CD007A9620 /* tint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = tint.pdf; sourceTree = "<group>"; };
+		C3CBB3371877011B007A9620 /* PDFTintColorDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFTintColorDemoViewController.h; sourceTree = "<group>"; };
+		C3CBB3381877011B007A9620 /* PDFTintColorDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFTintColorDemoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3995276187694E100221C8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3995280187694E100221C8A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3AED87818769B430035F18E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3AED87E18769B430035F18E /* CoreGraphics.framework in Frameworks */,
+				C3AED88018769B430035F18E /* UIKit.framework in Frameworks */,
+				C3AED87C18769B430035F18E /* Foundation.framework in Frameworks */,
+				C32452D818769D4000FBCF88 /* PDFImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3AED89018769B430035F18E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3AED89518769B430035F18E /* XCTest.framework in Frameworks */,
+				C3AED89718769B430035F18E /* UIKit.framework in Frameworks */,
+				C3AED89618769B430035F18E /* Foundation.framework in Frameworks */,
+				C32453221876D4FF00FBCF88 /* PDFImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C32452D918769F2E00FBCF88 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C32452DD18769F6F00FBCF88 /* Controllers */,
+				C32452DE18769F7400FBCF88 /* Table Cells */,
+				C32452DA18769F2E00FBCF88 /* PDFAppDelegate.h */,
+				C32452DB18769F2E00FBCF88 /* PDFAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C32452DD18769F6F00FBCF88 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C32452E81876A29900FBCF88 /* Abstract */,
+				C32452F01876A2C100FBCF88 /* Root */,
+				C32452EF1876A2B200FBCF88 /* Demos */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C32452DE18769F7400FBCF88 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C32452F71876A3A600FBCF88 /* PDFImageViewCell.h */,
+				C32452F81876A3A600FBCF88 /* PDFImageViewCell.m */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
+		C32452E81876A29900FBCF88 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				C32452E91876A29900FBCF88 /* PDFNavigationController.h */,
+				C32452EA1876A29900FBCF88 /* PDFNavigationController.m */,
+				C32452EB1876A29900FBCF88 /* PDFViewController.h */,
+				C32452EC1876A29900FBCF88 /* PDFViewController.m */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		C32452EF1876A2B200FBCF88 /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				C3CBB3371877011B007A9620 /* PDFTintColorDemoViewController.h */,
+				C3CBB3381877011B007A9620 /* PDFTintColorDemoViewController.m */,
+				C32452F41876A2D800FBCF88 /* PDFTableViewDemoViewController.h */,
+				C32452F51876A2D800FBCF88 /* PDFTableViewDemoViewController.m */,
+				C32453131876A9E200FBCF88 /* PDFAnimationDemoViewController.h */,
+				C32453141876A9E200FBCF88 /* PDFAnimationDemoViewController.m */,
+				C3CBB31D1876F822007A9620 /* PDFLocalizedDemoViewController.h */,
+				C3CBB31E1876F822007A9620 /* PDFLocalizedDemoViewController.m */,
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
+		C32452F01876A2C100FBCF88 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				C32452F11876A2C100FBCF88 /* PDFDemoListViewController.h */,
+				C32452F21876A2C100FBCF88 /* PDFDemoListViewController.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		C32452FA1876A62600FBCF88 /* PDFs */ = {
+			isa = PBXGroup;
+			children = (
+				C32452FB1876A63100FBCF88 /* 0.pdf */,
+				C32452FC1876A63100FBCF88 /* 1.pdf */,
+				C32452FD1876A63100FBCF88 /* 2.pdf */,
+				C32452FE1876A63100FBCF88 /* 3.pdf */,
+				C32452FF1876A63100FBCF88 /* 4.pdf */,
+				C32453001876A63100FBCF88 /* 5.pdf */,
+				C32453011876A63100FBCF88 /* 6.pdf */,
+				C32453021876A63100FBCF88 /* 7.pdf */,
+				C32453031876A63100FBCF88 /* 8.pdf */,
+				C32453041876A63100FBCF88 /* 9.pdf */,
+				C32453051876A63100FBCF88 /* 10.pdf */,
+				C32453111876A63600FBCF88 /* 11.pdf */,
+				C3CBB3261876FE3A007A9620 /* extension1.pdf */,
+				C3CBB3271876FE3A007A9620 /* extension2.PDF */,
+				C3CBB3281876FE3A007A9620 /* extension3.PdF */,
+				C3CBB330187700CD007A9620 /* tint.pdf */,
+				C3CBB3191876F7ED007A9620 /* locale.pdf */,
+			);
+			path = PDFs;
+			sourceTree = "<group>";
+		};
+		C399526F187694E100221C8A = {
+			isa = PBXGroup;
+			children = (
+				C3AED88118769B430035F18E /* PDFImageDemo */,
+				C3AED89A18769B430035F18E /* PDFImageDemoTests */,
+				C3995281187694E100221C8A /* PDFImage */,
+				C399527E187694E100221C8A /* Frameworks */,
+				C399527D187694E100221C8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C399527D187694E100221C8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C399527C187694E100221C8A /* PDFImage.framework */,
+				C3AED87B18769B430035F18E /* PDFImageDemo.app */,
+				C3AED89318769B430035F18E /* PDFImageDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C399527E187694E100221C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C32452D718769D4000FBCF88 /* PDFImage.framework */,
+				C399527F187694E100221C8A /* Foundation.framework */,
+				C3AED87D18769B430035F18E /* CoreGraphics.framework */,
+				C3AED87F18769B430035F18E /* UIKit.framework */,
+				C3AED89418769B430035F18E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3995281187694E100221C8A /* PDFImage */ = {
+			isa = PBXGroup;
+			children = (
+				C39952A1187695CD00221C8A /* PDFImage.h */,
+				C399529B187695CD00221C8A /* PDFImage.m */,
+				C39952A0187695CD00221C8A /* PDFImageView.h */,
+				C399529F187695CD00221C8A /* PDFImageView.m */,
+				C399529D187695CD00221C8A /* PDFImageOptions.h */,
+				C399529C187695CD00221C8A /* PDFImageOptions.m */,
+				C399529E187695CD00221C8A /* PDFImageViewLayer.h */,
+				C399529A187695CD00221C8A /* PDFImageViewLayer.m */,
+				C3995282187694E100221C8A /* Supporting Files */,
+			);
+			path = PDFImage;
+			sourceTree = "<group>";
+		};
+		C3995282187694E100221C8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3995283187694E100221C8A /* PDFImage-Info.plist */,
+				C3995284187694E100221C8A /* InfoPlist.strings */,
+				C3995287187694E100221C8A /* PDFImage-Prefix.pch */,
+				C39952AA187695FB00221C8A /* Release.xcconfig */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3AED88118769B430035F18E /* PDFImageDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C32452D918769F2E00FBCF88 /* Classes */,
+				C3AED88D18769B430035F18E /* Images.xcassets */,
+				C3AED88218769B430035F18E /* Supporting Files */,
+			);
+			path = PDFImageDemo;
+			sourceTree = "<group>";
+		};
+		C3AED88218769B430035F18E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C32452FA1876A62600FBCF88 /* PDFs */,
+				C3AED88318769B430035F18E /* PDFImageDemo-Info.plist */,
+				C3AED88418769B430035F18E /* InfoPlist.strings */,
+				C3AED88718769B430035F18E /* main.m */,
+				C3AED88918769B430035F18E /* PDFImageDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3AED89A18769B430035F18E /* PDFImageDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3AED8A018769B430035F18E /* PDFImageDemoTests.m */,
+				C3AED89B18769B430035F18E /* Supporting Files */,
+			);
+			path = PDFImageDemoTests;
+			sourceTree = "<group>";
+		};
+		C3AED89B18769B430035F18E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3AED89C18769B430035F18E /* PDFImageDemoTests-Info.plist */,
+				C3AED89D18769B430035F18E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C3995277187694E100221C8A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39952A6187695CD00221C8A /* PDFImageViewLayer.h in Headers */,
+				C39952A9187695CD00221C8A /* PDFImage.h in Headers */,
+				C39952A8187695CD00221C8A /* PDFImageView.h in Headers */,
+				C39952A5187695CD00221C8A /* PDFImageOptions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C399527B187694E100221C8A /* PDFImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C399528A187694E100221C8A /* Build configuration list for PBXNativeTarget "PDFImage" */;
+			buildPhases = (
+				C3995274187694E100221C8A /* ShellScript */,
+				C3995275187694E100221C8A /* Sources */,
+				C3995276187694E100221C8A /* Frameworks */,
+				C3995277187694E100221C8A /* Headers */,
+				C3995278187694E100221C8A /* Resources */,
+				C3995279187694E100221C8A /* ShellScript */,
+				C399527A187694E100221C8A /* ShellScript */,
+				C3F2DD97187708EE00B30628 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PDFImage;
+			productName = PDFImage;
+			productReference = C399527C187694E100221C8A /* PDFImage.framework */;
+			productType = "com.apple.product-type.framework.static";
+		};
+		C3AED87A18769B430035F18E /* PDFImageDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3AED8A618769B430035F18E /* Build configuration list for PBXNativeTarget "PDFImageDemo" */;
+			buildPhases = (
+				C3AED87718769B430035F18E /* Sources */,
+				C3AED87818769B430035F18E /* Frameworks */,
+				C3AED87918769B430035F18E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C32452D618769BDA00FBCF88 /* PBXTargetDependency */,
+			);
+			name = PDFImageDemo;
+			productName = PDFImageDemo;
+			productReference = C3AED87B18769B430035F18E /* PDFImageDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3AED89218769B430035F18E /* PDFImageDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3AED8A718769B430035F18E /* Build configuration list for PBXNativeTarget "PDFImageDemoTests" */;
+			buildPhases = (
+				C3AED88F18769B430035F18E /* Sources */,
+				C3AED89018769B430035F18E /* Frameworks */,
+				C3AED89118769B430035F18E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3AED89918769B430035F18E /* PBXTargetDependency */,
+			);
+			name = PDFImageDemoTests;
+			productName = PDFImageDemoTests;
+			productReference = C3AED89318769B430035F18E /* PDFImageDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3995270187694E100221C8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PDF;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Tom Parry";
+				TargetAttributes = {
+					C3AED89218769B430035F18E = {
+						TestTargetID = C3AED87A18769B430035F18E;
+					};
+				};
+			};
+			buildConfigurationList = C3995273187694E100221C8A /* Build configuration list for PBXProject "PDFImage" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				es,
+			);
+			mainGroup = C399526F187694E100221C8A;
+			productRefGroup = C399527D187694E100221C8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3AED87A18769B430035F18E /* PDFImageDemo */,
+				C3AED89218769B430035F18E /* PDFImageDemoTests */,
+				C399527B187694E100221C8A /* PDFImage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3995278187694E100221C8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3995286187694E100221C8A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3AED87918769B430035F18E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32453101876A63100FBCF88 /* 10.pdf in Resources */,
+				C324530E1876A63100FBCF88 /* 8.pdf in Resources */,
+				C32453091876A63100FBCF88 /* 3.pdf in Resources */,
+				C3CBB31B1876F7ED007A9620 /* locale.pdf in Resources */,
+				C3CBB32B1876FE3A007A9620 /* extension3.PdF in Resources */,
+				C3CBB3291876FE3A007A9620 /* extension1.pdf in Resources */,
+				C32453061876A63100FBCF88 /* 0.pdf in Resources */,
+				C324530B1876A63100FBCF88 /* 5.pdf in Resources */,
+				C324530C1876A63100FBCF88 /* 6.pdf in Resources */,
+				C3CBB331187700CD007A9620 /* tint.pdf in Resources */,
+				C324530D1876A63100FBCF88 /* 7.pdf in Resources */,
+				C32453121876A63600FBCF88 /* 11.pdf in Resources */,
+				C324530F1876A63100FBCF88 /* 9.pdf in Resources */,
+				C3CBB32A1876FE3A007A9620 /* extension2.PDF in Resources */,
+				C3AED88618769B430035F18E /* InfoPlist.strings in Resources */,
+				C32453071876A63100FBCF88 /* 1.pdf in Resources */,
+				C3AED88E18769B430035F18E /* Images.xcassets in Resources */,
+				C324530A1876A63100FBCF88 /* 4.pdf in Resources */,
+				C32453081876A63100FBCF88 /* 2.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3AED89118769B430035F18E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32453211876CF8F00FBCF88 /* 10.pdf in Resources */,
+				C324531F1876CF8F00FBCF88 /* 8.pdf in Resources */,
+				C324531A1876CF8F00FBCF88 /* 3.pdf in Resources */,
+				C32453171876CDA000FBCF88 /* 0.pdf in Resources */,
+				C324531C1876CF8F00FBCF88 /* 5.pdf in Resources */,
+				C3CBB32E1876FE4F007A9620 /* extension2.PDF in Resources */,
+				C3CBB32D1876FE4F007A9620 /* extension1.pdf in Resources */,
+				C324531D1876CF8F00FBCF88 /* 6.pdf in Resources */,
+				C324531E1876CF8F00FBCF88 /* 7.pdf in Resources */,
+				C3CBB32F1876FE4F007A9620 /* extension3.PdF in Resources */,
+				C32453201876CF8F00FBCF88 /* 9.pdf in Resources */,
+				C3CBB32C1876FE4A007A9620 /* locale.pdf in Resources */,
+				C32453161876CCE400FBCF88 /* 11.pdf in Resources */,
+				C32453181876CF8F00FBCF88 /* 1.pdf in Resources */,
+				C3AED89F18769B430035F18E /* InfoPlist.strings in Resources */,
+				C324531B1876CF8F00FBCF88 /* 4.pdf in Resources */,
+				C32453191876CF8F00FBCF88 /* 2.pdf in Resources */,
+				C3CBB332187700CD007A9620 /* tint.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C3995274187694E100221C8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n\tUFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version  from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n  ([[ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]] || \\\n    ([[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n     [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n     [[ ! \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\n    )\n  )\nthen\n    exit 0\nfi\n\n\n# Clean other platform if needed\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n\techo \"Platform \\\"$UFW_SDK_PLATFORM\\\" was cleaned recently. Cleaning \\\"$UFW_OTHER_PLATFORM\\\" as well\"\n\techo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\n\txcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\nfi\n\n\n# Make sure we are building from fresh binaries\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\n\nif [[ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]]\nthen\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    rm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nfi\n";
+		};
+		C3995279187694E100221C8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n    if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n      mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n      mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n    fi\n  done\nfi\n";
+		};
+		C399527A187694E100221C8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\nexport UFW_MASTER_SCRIPT_RUNNING=1\n\n\n# Functions\n\n## List files in the specified directory, storing to the specified array.\n#\n# @param $1 The path to list\n# @param $2 The name of the array to fill\n#\n##\nlist_files ()\n{\n    filelist=$(ls \"$1\")\n    while read line\n    do\n        eval \"$2[\\${#$2[*]}]=\\\"\\$line\\\"\"\n    done <<< \"$filelist\"\n}\n\n\n# Sanity check\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n    echo \"Framework target \\\"${TARGET_NAME}\\\" had no source files to build from. Make sure your source files have the correct target membership\"\n    exit 1\nfi\n\n\n# Gather information\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n    UFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\nONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM:-$ONLY_ACTIVE_ARCH}\n\n# Short-circuit if all binaries are up to date.\n# We already checked the other platform in the prerun script.\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" == \"YES\" ]\nthen\n    echo \"ONLY_ACTIVE_PLATFORM=${ONLY_ACTIVE_PLATFORM}: Skipping other platform build\"\nelse\n    # Make sure the other platform gets built\n    \n    echo \"Build other platform\"\n    \n    echo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n    \n    \n    # Build the fat static library binary\n    \n    echo \"Create universal static library\"\n    \necho \"Xcode version: $XCODE_VERSION_MAJOR\"\n\nif [[ \"$XCODE_VERSION_MAJOR\" == \"0500\" ]]\nthen\n    echo \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nelse\n    echo \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nfi \n    echo mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n    mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nfi\n\n# Build embedded framework structure\n\necho \"Build Embedded Framework\"\n\necho rm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\necho mkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\necho cp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\n\ndeclare -a UFW_FILE_LIST\nlist_files \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\" UFW_FILE_LIST\nfor filename in \"${UFW_FILE_LIST[@]}\"\ndo\n    if [[ \"${filename}\" != \"Info.plist\" ]] && [[ ! \"${filename}\" =~ .*\\.lproj$ ]]\n    then\n        echo ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n        ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n    fi\ndone\n\n\nif [ \"${ONLY_ACTIVE_PLATFORM}\" != \"YES\" ]\nthen\n    # Replace other platform's framework with a copy of this one (so that both have the same universal binary)\n    \n    echo \"Copy from $UFW_SDK_PLATFORM to $UFW_OTHER_PLATFORM\"\n    \n    echo rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    echo cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n    cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\nfi\n";
+		};
+		C3F2DD97187708EE00B30628 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Package framework to zip if we're compiling the framework\n\nif [ \"${CONFIGURATION}\" == \"Release\" ]\nthen\n\n    ZIP_PATH=\"${SRCROOT}/PDFImage.framework.zip\"\n    -rm $ZIP_PATH #silent rm\n    cd \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/\"\n    zip -r $ZIP_PATH *\n\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3995275187694E100221C8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39952A4187695CD00221C8A /* PDFImageOptions.m in Sources */,
+				C39952A7187695CD00221C8A /* PDFImageView.m in Sources */,
+				C39952A3187695CD00221C8A /* PDFImage.m in Sources */,
+				C39952A2187695CD00221C8A /* PDFImageViewLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3AED87718769B430035F18E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3CBB3391877011B007A9620 /* PDFTintColorDemoViewController.m in Sources */,
+				C32452F31876A2C100FBCF88 /* PDFDemoListViewController.m in Sources */,
+				C32452F91876A3A600FBCF88 /* PDFImageViewCell.m in Sources */,
+				C32453151876A9E200FBCF88 /* PDFAnimationDemoViewController.m in Sources */,
+				C3AED88818769B430035F18E /* main.m in Sources */,
+				C32452ED1876A29900FBCF88 /* PDFNavigationController.m in Sources */,
+				C32452EE1876A29900FBCF88 /* PDFViewController.m in Sources */,
+				C32452F61876A2D800FBCF88 /* PDFTableViewDemoViewController.m in Sources */,
+				C3CBB31F1876F822007A9620 /* PDFLocalizedDemoViewController.m in Sources */,
+				C32452DC18769F2E00FBCF88 /* PDFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3AED88F18769B430035F18E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3CBB33A1877011B007A9620 /* PDFTintColorDemoViewController.m in Sources */,
+				C3AED8A118769B430035F18E /* PDFImageDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C32452D618769BDA00FBCF88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C399527B187694E100221C8A /* PDFImage */;
+			targetProxy = C32452D518769BDA00FBCF88 /* PBXContainerItemProxy */;
+		};
+		C3AED89918769B430035F18E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3AED87A18769B430035F18E /* PDFImageDemo */;
+			targetProxy = C3AED89818769B430035F18E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3995284187694E100221C8A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3995285187694E100221C8A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3AED88418769B430035F18E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3AED88518769B430035F18E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3AED89D18769B430035F18E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3AED89E18769B430035F18E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3CBB3191876F7ED007A9620 /* locale.pdf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3CBB31A1876F7ED007A9620 /* es */,
+				C3CBB31C1876F802007A9620 /* en */,
+			);
+			name = locale.pdf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3995288187694E100221C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C3995289187694E100221C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C399528B187694E100221C8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C39952AA187695FB00221C8A /* Release.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PDFImage/PDFImage-Prefix.pch";
+				INFOPLIST_FILE = "PDFImage/PDFImage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		C399528C187694E100221C8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C39952AA187695FB00221C8A /* Release.xcconfig */;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PDFImage/PDFImage-Prefix.pch";
+				INFOPLIST_FILE = "PDFImage/PDFImage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		C3AED8A218769B430035F18E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"${BUILT_PRODUCTS_DIR}",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PDFImageDemo/PDFImageDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PDFImageDemo/PDFImageDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3AED8A318769B430035F18E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"${BUILT_PRODUCTS_DIR}",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PDFImageDemo/PDFImageDemo-Prefix.pch";
+				INFOPLIST_FILE = "PDFImageDemo/PDFImageDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C3AED8A418769B430035F18E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PDFImageDemo.app/PDFImageDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"${BUILT_PRODUCTS_DIR}",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PDFImage-dsswrlcyowqtxbasgqxvmkeoojqz/Build/Products/Debug-iphoneos",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PDFImageDemo/PDFImageDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PDFImageDemoTests/PDFImageDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C3AED8A518769B430035F18E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PDFImageDemo.app/PDFImageDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"${BUILT_PRODUCTS_DIR}",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PDFImage-dsswrlcyowqtxbasgqxvmkeoojqz/Build/Products/Debug-iphoneos",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PDFImageDemo/PDFImageDemo-Prefix.pch";
+				INFOPLIST_FILE = "PDFImageDemoTests/PDFImageDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3995273187694E100221C8A /* Build configuration list for PBXProject "PDFImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3995288187694E100221C8A /* Debug */,
+				C3995289187694E100221C8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C399528A187694E100221C8A /* Build configuration list for PBXNativeTarget "PDFImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C399528B187694E100221C8A /* Debug */,
+				C399528C187694E100221C8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3AED8A618769B430035F18E /* Build configuration list for PBXNativeTarget "PDFImageDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3AED8A218769B430035F18E /* Debug */,
+				C3AED8A318769B430035F18E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3AED8A718769B430035F18E /* Build configuration list for PBXNativeTarget "PDFImageDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3AED8A418769B430035F18E /* Debug */,
+				C3AED8A518769B430035F18E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3995270187694E100221C8A /* Project object */;
+}
