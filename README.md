@@ -26,7 +26,7 @@ To show the `PDFImage` on the screen:
     
     PDFImageView* imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     [imageView setImage:image];
-    [view addSubview:image];
+    [view addSubview:imageView];
     
 The `PDFImageView` will automatically make sure a pixel perfect version of the loaded PDF is drawn to screen, even if the view is resized or animated.
 
