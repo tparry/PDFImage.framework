@@ -7,6 +7,15 @@ PDFImage.framework
 
 ![image](Images/scalable.png)
 
+Making a PDF
+-----
+
+In Photoshop, choose `File > Save As...`. Select `Photoshop PDF` as the file format and save. In the next window, just leave everything as is and proceed saving.
+
+For best results, make sure all Photoshop layers are vector shapes or smart objects.
+
+To optimize the file and make it smaller, try [`PDFShaver.app`](https://github.com/tparry/PDFShaver.app), a Mac OS X app to slim down the file size of PDF files.
+
 Usage
 -----
 
