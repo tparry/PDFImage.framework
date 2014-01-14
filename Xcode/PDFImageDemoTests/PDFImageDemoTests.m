@@ -155,9 +155,15 @@
 	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:bundle];
 	
 	PDFImageView* imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+	
+	XCTAssertNil(imageView.currentUIImage, @"No PDFImage, current UIImage should be nil");
+	
 	[imageView setTintColor:[UIColor redColor]];
 	[imageView setImage:image];
 	[keyWindow addSubview:imageView];
+	
+	XCTAssertNotNil(imageView.currentUIImage, @"Has PDFImage, current UIImage should not be nil");
+	XCTAssertEqual(imageView.currentUIImage.size, imageView.frame.size, @"Current UIImage should be same size as PDFImageView");
 	
 	UIImageView* privateImageView = [imageView.subviews objectAtIndex:0];
 	

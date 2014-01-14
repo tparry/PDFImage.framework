@@ -103,8 +103,7 @@
 {
 	[super drawRect:rect];
 	
-	[options setSize:imageView.frame.size];
-	[imageView setImage:[image imageWithOptions:options]];
+	[imageView setImage:self.currentUIImage];
 }
 
 - (void) setContentMode:(UIViewContentMode)contentMode
@@ -141,6 +140,19 @@
 	[options setTintColor:tintColor];
 	
 	[self setNeedsDisplay];
+}
+
+- (UIImage*) currentUIImage
+{
+	[options setSize:self.frame.size];
+	
+	if(!CGSizeEqualToSize(options.size, CGSizeZero))
+	{
+		UIImage* currentUIImage = [image imageWithOptions:options];
+		return currentUIImage;
+	}
+	
+	return nil;
 }
 
 @end
