@@ -152,4 +152,21 @@
 	return rect;
 }
 
+- (CGSize) wholeProportionalFitForContentSize:(CGSize) contentSize
+{
+	const CGSize containerSize = size;
+	
+	if(contentSize.width > containerSize.width || contentSize.height > containerSize.height)
+	{
+		const CGFloat ratio = ceilf(MAX(contentSize.width / containerSize.width, contentSize.height / containerSize.height));
+		return CGSizeMake(contentSize.width / ratio, contentSize.height / ratio);
+	}
+	else
+	{
+		
+		const CGFloat ratio = floorf(MIN(containerSize.width / contentSize.width, containerSize.height / contentSize.height));
+		return CGSizeMake(contentSize.width * ratio, contentSize.height * ratio);
+	}
+}
+
 @end

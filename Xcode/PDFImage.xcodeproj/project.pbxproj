@@ -40,6 +40,9 @@
 		C32453201876CF8F00FBCF88 /* 9.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453041876A63100FBCF88 /* 9.pdf */; };
 		C32453211876CF8F00FBCF88 /* 10.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C32453051876A63100FBCF88 /* 10.pdf */; };
 		C32453221876D4FF00FBCF88 /* PDFImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32452D718769D4000FBCF88 /* PDFImage.framework */; };
+		C343B02E1893BB1B0048FE48 /* PDFBarButtonDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C343B02D1893BB1B0048FE48 /* PDFBarButtonDemoViewController.m */; };
+		C343B0321893F7230048FE48 /* PDFBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C343B0301893F7230048FE48 /* PDFBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C343B0331893F7230048FE48 /* PDFBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C343B0311893F7230048FE48 /* PDFBarButtonItem.m */; };
 		C3995280187694E100221C8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C399527F187694E100221C8A /* Foundation.framework */; };
 		C3995286187694E100221C8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3995284187694E100221C8A /* InfoPlist.strings */; };
 		C39952A2187695CD00221C8A /* PDFImageViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C399529A187695CD00221C8A /* PDFImageViewLayer.m */; };
@@ -121,6 +124,10 @@
 		C32453111876A63600FBCF88 /* 11.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 11.pdf; sourceTree = "<group>"; };
 		C32453131876A9E200FBCF88 /* PDFAnimationDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAnimationDemoViewController.h; sourceTree = "<group>"; };
 		C32453141876A9E200FBCF88 /* PDFAnimationDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAnimationDemoViewController.m; sourceTree = "<group>"; };
+		C343B02C1893BB1B0048FE48 /* PDFBarButtonDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFBarButtonDemoViewController.h; sourceTree = "<group>"; };
+		C343B02D1893BB1B0048FE48 /* PDFBarButtonDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFBarButtonDemoViewController.m; sourceTree = "<group>"; };
+		C343B0301893F7230048FE48 /* PDFBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFBarButtonItem.h; sourceTree = "<group>"; };
+		C343B0311893F7230048FE48 /* PDFBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFBarButtonItem.m; sourceTree = "<group>"; };
 		C399527C187694E100221C8A /* PDFImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = PDFImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C399527F187694E100221C8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C3995283187694E100221C8A /* PDFImage-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PDFImage-Info.plist"; sourceTree = "<group>"; };
@@ -246,6 +253,8 @@
 				C32453141876A9E200FBCF88 /* PDFAnimationDemoViewController.m */,
 				C3CBB31D1876F822007A9620 /* PDFLocalizedDemoViewController.h */,
 				C3CBB31E1876F822007A9620 /* PDFLocalizedDemoViewController.m */,
+				C343B02C1893BB1B0048FE48 /* PDFBarButtonDemoViewController.h */,
+				C343B02D1893BB1B0048FE48 /* PDFBarButtonDemoViewController.m */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -325,6 +334,8 @@
 				C399529F187695CD00221C8A /* PDFImageView.m */,
 				C399529D187695CD00221C8A /* PDFImageOptions.h */,
 				C399529C187695CD00221C8A /* PDFImageOptions.m */,
+				C343B0301893F7230048FE48 /* PDFBarButtonItem.h */,
+				C343B0311893F7230048FE48 /* PDFBarButtonItem.m */,
 				C399529E187695CD00221C8A /* PDFImageViewLayer.h */,
 				C399529A187695CD00221C8A /* PDFImageViewLayer.m */,
 				C3995282187694E100221C8A /* Supporting Files */,
@@ -391,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39952A6187695CD00221C8A /* PDFImageViewLayer.h in Headers */,
+				C343B0321893F7230048FE48 /* PDFBarButtonItem.h in Headers */,
 				C39952A9187695CD00221C8A /* PDFImage.h in Headers */,
 				C39952A8187695CD00221C8A /* PDFImageView.h in Headers */,
 				C39952A5187695CD00221C8A /* PDFImageOptions.h in Headers */,
@@ -617,6 +629,7 @@
 			files = (
 				C39952A4187695CD00221C8A /* PDFImageOptions.m in Sources */,
 				C39952A7187695CD00221C8A /* PDFImageView.m in Sources */,
+				C343B0331893F7230048FE48 /* PDFBarButtonItem.m in Sources */,
 				C39952A3187695CD00221C8A /* PDFImage.m in Sources */,
 				C39952A2187695CD00221C8A /* PDFImageViewLayer.m in Sources */,
 			);
@@ -634,6 +647,7 @@
 				C32452ED1876A29900FBCF88 /* PDFNavigationController.m in Sources */,
 				C32452EE1876A29900FBCF88 /* PDFViewController.m in Sources */,
 				C32452F61876A2D800FBCF88 /* PDFTableViewDemoViewController.m in Sources */,
+				C343B02E1893BB1B0048FE48 /* PDFBarButtonDemoViewController.m in Sources */,
 				C3CBB31F1876F822007A9620 /* PDFLocalizedDemoViewController.m in Sources */,
 				C32452DC18769F2E00FBCF88 /* PDFAppDelegate.m in Sources */,
 			);

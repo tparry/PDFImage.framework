@@ -25,19 +25,12 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
-@interface PDFImageOptions : NSObject
+@class PDFImage;
 
-@property (nonatomic, assign) CGFloat scale;					//	screen scale, defaults to 0, the current screen scale
-@property (nonatomic, copy) UIColor* tintColor;					//	solid color of the image, defaults to nil, original color
-@property (nonatomic, assign) CGSize size;						//	size of the image
-@property (nonatomic, assign) UIViewContentMode contentMode;	//	defaults to UIViewContentModeScaleToFill
+@interface PDFBarButtonItem : UIBarButtonItem
 
-//	Convience method for simply spitting out a sized version
-+ (PDFImageOptions*) optionsWithSize:(CGSize) size;
-
-- (CGRect) contentBoundsForContentSize:(CGSize) contentSize;
-
-//	Proportionally scaled up or down by a whole number to fit the contentSize in the self.size
-- (CGSize) wholeProportionalFitForContentSize:(CGSize) contentSize;
+//	Scales the image down proportionally to fit into a target size of 28x28
+//	for best results, the PDFImage should be as close to the target size as possible
+- (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action;
 
 @end

@@ -150,6 +150,31 @@
 	XCTAssertEqual(CGRectMake(15, 10, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
 }
 
+- (void) testPDFImageWholeProportionalFit
+{
+	const CGSize containerSize = CGSizeMake(28, 28);
+	
+	PDFImageOptions* options = [[PDFImageOptions alloc] init];
+	[options setSize:containerSize];
+	
+	//	Scaling up
+	XCTAssertEqual(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(14, 14)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(20, 14), [options wholeProportionalFitForContentSize:CGSizeMake(20, 14)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(24, 28), [options wholeProportionalFitForContentSize:CGSizeMake(12, 14)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(28, 14), [options wholeProportionalFitForContentSize:CGSizeMake(2, 1)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(27, 27), [options wholeProportionalFitForContentSize:CGSizeMake(3, 3)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(24, 12), [options wholeProportionalFitForContentSize:CGSizeMake(6, 3)], @"Wrong proportional fit");
+	
+	//	Scaling down
+	XCTAssertEqual(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(28, 28)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(56, 56)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(28, 14), [options wholeProportionalFitForContentSize:CGSizeMake(56, 28)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(26, 10), [options wholeProportionalFitForContentSize:CGSizeMake(52, 20)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(25, 7.5), [options wholeProportionalFitForContentSize:CGSizeMake(100, 30)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(25, 18.75), [options wholeProportionalFitForContentSize:CGSizeMake(200, 150)], @"Wrong proportional fit");
+	XCTAssertEqual(CGSizeMake(14.5, 14.5), [options wholeProportionalFitForContentSize:CGSizeMake(29, 29)], @"Wrong proportional fit");
+}
+
 - (void) testPDFImageView
 {
 	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:bundle];
@@ -184,6 +209,16 @@
 	XCTAssertNotNil([PDFImage imageNamed:@"extension1.pdf" inBundle:bundle], @"Failed loading pdf image");
 	XCTAssertNotNil([PDFImage imageNamed:@"extension2.PDF" inBundle:bundle], @"Failed loading pdf image");
 	XCTAssertNotNil([PDFImage imageNamed:@"extension3.PdF" inBundle:bundle], @"Failed loading pdf image");
+}
+
+- (void) testPDFBarButtonItem
+{
+	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:bundle];
+	
+	PDFBarButtonItem* item = [[PDFBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:nil action:nil];
+	
+	XCTAssertNotNil(item.image, @"Bar button item should have image");
+	XCTAssertNotEqual(item.image.size, CGSizeZero, @"Bar button image should have non zero size");
 }
 
 #pragma mark -

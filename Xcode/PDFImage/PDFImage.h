@@ -35,6 +35,7 @@
 
 #import <PDFImage/PDFImageView.h>
 #import <PDFImage/PDFImageOptions.h>
+#import <PDFImage/PDFBarButtonItem.h>
 
 //	PDFImage is thread-safe,
 //	however note that opening the same bundled file on

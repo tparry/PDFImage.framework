@@ -25,19 +25,27 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
-@interface PDFImageOptions : NSObject
+#import "PDFBarButtonDemoViewController.h"
 
-@property (nonatomic, assign) CGFloat scale;					//	screen scale, defaults to 0, the current screen scale
-@property (nonatomic, copy) UIColor* tintColor;					//	solid color of the image, defaults to nil, original color
-@property (nonatomic, assign) CGSize size;						//	size of the image
-@property (nonatomic, assign) UIViewContentMode contentMode;	//	defaults to UIViewContentModeScaleToFill
+#import <PDFImage/PDFImage.h>
 
-//	Convience method for simply spitting out a sized version
-+ (PDFImageOptions*) optionsWithSize:(CGSize) size;
+@interface PDFBarButtonDemoViewController ()
 
-- (CGRect) contentBoundsForContentSize:(CGSize) contentSize;
+@end
 
-//	Proportionally scaled up or down by a whole number to fit the contentSize in the self.size
-- (CGSize) wholeProportionalFitForContentSize:(CGSize) contentSize;
+@implementation PDFBarButtonDemoViewController
+
+- (void) viewDidLoad
+{
+	[super viewDidLoad];
+	
+	[self setInfo:@"Create a UIBarButtonItem using a PDFImage with the PDFBarButtonItem subclass"];
+	
+	PDFBarButtonItem* button1 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"3"] style:UIBarButtonItemStylePlain target:nil action:nil];
+	PDFBarButtonItem* button2 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"4"] style:UIBarButtonItemStylePlain target:nil action:nil];
+	PDFBarButtonItem* button3 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"5"] style:UIBarButtonItemStylePlain target:nil action:nil];
+	
+	[self.navigationItem setRightBarButtonItems:@[button1, button2, button3]];
+}
 
 @end

@@ -25,19 +25,28 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
-@interface PDFImageOptions : NSObject
+#import "PDFBarButtonItem.h"
 
-@property (nonatomic, assign) CGFloat scale;					//	screen scale, defaults to 0, the current screen scale
-@property (nonatomic, copy) UIColor* tintColor;					//	solid color of the image, defaults to nil, original color
-@property (nonatomic, assign) CGSize size;						//	size of the image
-@property (nonatomic, assign) UIViewContentMode contentMode;	//	defaults to UIViewContentModeScaleToFill
+#import "PDFImage.h"
+#import "PDFImageOptions.h"
 
-//	Convience method for simply spitting out a sized version
-+ (PDFImageOptions*) optionsWithSize:(CGSize) size;
+@implementation PDFBarButtonItem
 
-- (CGRect) contentBoundsForContentSize:(CGSize) contentSize;
+- (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action
+{
+	return [self initWithImage:image style:style target:target action:action targetSize:CGSizeMake(28, 28)];
+}
 
-//	Proportionally scaled up or down by a whole number to fit the contentSize in the self.size
-- (CGSize) wholeProportionalFitForContentSize:(CGSize) contentSize;
+- (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action targetSize:(CGSize) targetSize
+{
+	const CGSize imageSize = [[PDFImageOptions optionsWithSize:targetSize] wholeProportionalFitForContentSize:image.size];
+	
+	PDFImageOptions* options = [PDFImageOptions optionsWithSize:imageSize];
+	[options setTintColor:[UIColor whiteColor]];
+	
+	UIImage* barImage = [image imageWithOptions:options];
+	
+	return [super initWithImage:barImage style:style target:target action:action];
+}
 
 @end
