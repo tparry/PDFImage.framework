@@ -30,7 +30,25 @@
 #import "PDFImage.h"
 #import "PDFImageOptions.h"
 
+static BOOL isiOS7OrGreater = YES;
+
+@interface PDFBarButtonItem ()
+
+@property (nonatomic, readonly) PDFImage* originalImage;
+@property (nonatomic, readonly) CGSize targetSize;
+
+- (void) updateBarButtonImage;
+
+@end
+
 @implementation PDFBarButtonItem
+
++ (void) initialize
+{
+	isiOS7OrGreater = ([UIDevice currentDevice].systemVersion.integerValue >= 7);
+}
+
+#pragma mark -
 
 - (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action
 {
@@ -39,14 +57,49 @@
 
 - (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action targetSize:(CGSize) targetSize
 {
-	const CGSize imageSize = [[PDFImageOptions optionsWithSize:targetSize] wholeProportionalFitForContentSize:image.size];
+	self = [super initWithImage:nil style:style target:target action:action];
+	
+	if(self != nil)
+	{
+		_originalImage = image;
+		_targetSize = targetSize;
+		
+		[self updateBarButtonImage];
+	}
+	
+	return self;
+}
+
+#pragma mark -
+#pragma mark Super
+
+- (void) setTintColor:(UIColor *)tintColor
+{
+	[super setTintColor:tintColor];
+	
+	[self updateBarButtonImage];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void) updateBarButtonImage
+{
+	PDFImage* originalImage = self.originalImage;
+	const CGSize imageSize = [[PDFImageOptions optionsWithSize:self.targetSize] wholeProportionalFitForContentSize:originalImage.size];
+	
+	//	The color of the image,
+	//	on iOS6 we colorize it only if we're using a bordered style (not plain),
+	//	on iOS7+ white is used, as the UIBarButtonItem tint color will colorize our image anyway
+	UIColor* tintColor = self.tintColor;
+	if(tintColor == nil || (self.style != UIBarButtonItemStylePlain && !isiOS7OrGreater) || isiOS7OrGreater)
+		tintColor = [UIColor whiteColor];
 	
 	PDFImageOptions* options = [PDFImageOptions optionsWithSize:imageSize];
-	[options setTintColor:[UIColor whiteColor]];
+	[options setTintColor:tintColor];
 	
-	UIImage* barImage = [image imageWithOptions:options];
-	
-	return [super initWithImage:barImage style:style target:target action:action];
+	UIImage* image = [originalImage imageWithOptions:options];
+	[self setImage:image];
 }
 
 @end
