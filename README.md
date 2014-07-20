@@ -5,7 +5,7 @@ PDFImage.framework
 
 `PDFImage.framework` is **not a full PDF rendering library**. It is designed to draw small scalable PDF vector files as a replacement to exporting many asset images at different sizes - much like *NSImage on the Mac*.
 
-![image](Images/scalable.png)
+![image](Images/scalable.png?raw=true)
 
 Making a PDF
 -----
