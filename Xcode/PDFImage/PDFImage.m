@@ -120,18 +120,54 @@ static NSCache* sharedPDFImageCache = nil;
 	return [alloced initWithData:data];
 }
 
++ (NSArray*) imagesWithContentsOfFile:(NSString*) path
+{
+    NSData* data = [[NSData alloc] initWithContentsOfFile:path];
+    return [self imagesWithData:data];
+}
+
++ (NSArray*) imagesWithData:(NSData*) data
+{
+    NSMutableArray *pages;
+    
+    CGPDFDocumentRef document = [PDFImage createPDFDocumentFromData:data];
+    if (document != NULL)
+    {
+        pages = [NSMutableArray array];
+        
+        size_t numPages = CGPDFDocumentGetNumberOfPages(document);
+        for (int page = 1; page <= numPages; page++)
+        {
+            PDFImage *alloced = [self alloc];
+            [pages addObject:[alloced initWithDocument:document page:page]];
+        }
+        
+        CGPDFDocumentRelease(document);
+    }
+    return pages;
+}
+
++ (CGPDFDocumentRef)createPDFDocumentFromData:(NSData*) data
+{
+    CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    CGPDFDocumentRef document = CGPDFDocumentCreateWithProvider(provider);
+    CGDataProviderRelease(provider);
+    
+    return document;
+}
+
+#pragma mark -
+#pragma mark Initialization
+
 - (id) initWithContentsOfFile:(NSString*) path
 {
-	NSData* data = [[NSData alloc] initWithContentsOfFile:path];
-	return [self initWithData:data];
+    NSData* data = [[NSData alloc] initWithContentsOfFile:path];
+    return [self initWithData:data];
 }
 
 - (id) initWithData:(NSData*) data
 {
-	CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-	CGPDFDocumentRef _document = CGPDFDocumentCreateWithProvider(provider);
-	CGDataProviderRelease(provider);
-	
+    CGPDFDocumentRef _document = [PDFImage createPDFDocumentFromData:data];
 	id result = [self initWithDocument:_document];
 	
 	if(_document != nil)
@@ -142,6 +178,11 @@ static NSCache* sharedPDFImageCache = nil;
 
 - (id) initWithDocument:(CGPDFDocumentRef) _document
 {
+    return [self initWithDocument:_document page:1];
+}
+
+- (id) initWithDocument:(CGPDFDocumentRef) _document page:(NSInteger) _page
+{
 	if(_document == nil)
 		return nil;
 	
@@ -150,7 +191,7 @@ static NSCache* sharedPDFImageCache = nil;
 	if(self != nil)
 	{
 		document = CGPDFDocumentRetain(_document);
-		page = CGPDFDocumentGetPage(document, 1);
+		page = CGPDFDocumentGetPage(document, _page);
 		
 		size = CGPDFPageGetBoxRect(page, kCGPDFMediaBox).size;
 	}
