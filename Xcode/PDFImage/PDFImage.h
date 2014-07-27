@@ -50,13 +50,19 @@
 
 + (PDFImage*) imageNamed:(NSString*) name inBundle:(NSBundle*) bundle;
 
+// Single page PDF methods that return a PDFImage
 + (PDFImage*) imageWithContentsOfFile:(NSString*) path;
 + (PDFImage*) imageWithData:(NSData*) data;
+
+// Multi page PDF methods. These return an ordered list of PDFImages
++ (NSArray*) imagesWithContentsOfFile:(NSString*) path;
++ (NSArray*) imagesWithData:(NSData*) data;
 
 - (id) initWithContentsOfFile:(NSString*) path;
 - (id) initWithData:(NSData*) data;
 
 - (id) initWithDocument:(CGPDFDocumentRef) document;
+- (id) initWithDocument:(CGPDFDocumentRef) document page:(NSInteger) page;
 
 - (UIImage*) imageWithOptions:(PDFImageOptions*) options;	//	will NSCache the image if the same options are used again
 - (void) drawInRect:(CGRect) rect;
