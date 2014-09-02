@@ -19,7 +19,7 @@ To optimize the file and make it smaller, try [`PDFShaver.app`](https://github.c
 Usage
 -----
 
-Download the [`PDFImage.framework`](Xcode/PDFImage.framework.zip?raw=true) and link it with your project.
+Download the [`PDFImage.framework`](../../releases/latest) and link it with your project.
 
 Add the following line to import the required classes.
 
@@ -69,7 +69,7 @@ A tintColor can also be specified to change the entire color, useful for reusing
     PDFImageView* imageView = ...;
     [imageView setTintColor:[UIColor redColor]];
 
-See the included headers of the [`PDFImage.framework`](Xcode/PDFImage.framework.zip?raw=true) for the full API interface.
+See the included headers of the [`PDFImage.framework`](../../releases/latest) for the full API interface.
 
 See the `PDFImageDemo` target in `PDFImage.xcodeproj` for more examples.
 
@@ -79,6 +79,6 @@ Details
 
 `PDFImage` is thread safe. Obviously this does not extend to the view subclasses included.
 
-`PDFImage` uses ARC, however if you use the precompiled [`PDFImage.framework`](Xcode/PDFImage.framework.zip?raw=true) it is fully compatible with MRC projects and does not require any additional compiler flags.
+`PDFImage` uses ARC, however if you use the precompiled [`PDFImage.framework`](../../releases/latest) it is fully compatible with MRC projects and does not require any additional compiler flags.
 
 For optimal performance, `NSCache` is used to memory-cache both bundled PDF files as well as generated `UIImages`. These are automatically purged when the device runs low on memory, or if the App is terminated.

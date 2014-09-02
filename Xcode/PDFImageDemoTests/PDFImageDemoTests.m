@@ -111,43 +111,43 @@
 	[options setSize:containerSize];
 	
 	[options setContentMode:UIViewContentModeScaleToFill];
-	XCTAssertEqual(CGRectMake(0, 0, 20, 20), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(0, 0, 20, 20), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeScaleAspectFit];
-	XCTAssertEqual(CGRectMake(5, 0, 10, 20), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(5, 0, 10, 20), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeScaleAspectFill];
-	XCTAssertEqual(CGRectMake(0, -10, 20, 40), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(0, -10, 20, 40), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeRedraw];
-	XCTAssertEqual(CGRectMake(0, 0, 20, 20), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(0, 0, 20, 20), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeCenter];
-	XCTAssertEqual(CGRectMake(7, 5, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(7, 5, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeTop];
-	XCTAssertEqual(CGRectMake(7, 0, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(7, 0, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeBottom];
-	XCTAssertEqual(CGRectMake(7, 10, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(7, 10, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeLeft];
-	XCTAssertEqual(CGRectMake(0, 5, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(0, 5, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeRight];
-	XCTAssertEqual(CGRectMake(15, 5, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(15, 5, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeTopLeft];
-	XCTAssertEqual(CGRectMake(0, 0, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(0, 0, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeTopRight];
-	XCTAssertEqual(CGRectMake(15, 0, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(15, 0, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeBottomLeft];
-	XCTAssertEqual(CGRectMake(0, 10, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(0, 10, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 	
 	[options setContentMode:UIViewContentModeBottomRight];
-	XCTAssertEqual(CGRectMake(15, 10, 5, 10), [options contentBoundsForContentSize:contentSize], @"Wrong content mode bounds");
+	XCTAssertTrue(CGRectEqualToRect(CGRectMake(15, 10, 5, 10), [options contentBoundsForContentSize:contentSize]), @"Wrong content mode bounds");
 }
 
 - (void) testPDFImageWholeProportionalFit
@@ -158,21 +158,21 @@
 	[options setSize:containerSize];
 	
 	//	Scaling up
-	XCTAssertEqual(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(14, 14)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(20, 14), [options wholeProportionalFitForContentSize:CGSizeMake(20, 14)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(24, 28), [options wholeProportionalFitForContentSize:CGSizeMake(12, 14)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(28, 14), [options wholeProportionalFitForContentSize:CGSizeMake(2, 1)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(27, 27), [options wholeProportionalFitForContentSize:CGSizeMake(3, 3)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(24, 12), [options wholeProportionalFitForContentSize:CGSizeMake(6, 3)], @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(14, 14)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(20, 14), [options wholeProportionalFitForContentSize:CGSizeMake(20, 14)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(24, 28), [options wholeProportionalFitForContentSize:CGSizeMake(12, 14)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(28, 14), [options wholeProportionalFitForContentSize:CGSizeMake(2, 1)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(27, 27), [options wholeProportionalFitForContentSize:CGSizeMake(3, 3)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(24, 12), [options wholeProportionalFitForContentSize:CGSizeMake(6, 3)]), @"Wrong proportional fit");
 	
 	//	Scaling down
-	XCTAssertEqual(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(28, 28)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(56, 56)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(28, 14), [options wholeProportionalFitForContentSize:CGSizeMake(56, 28)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(26, 10), [options wholeProportionalFitForContentSize:CGSizeMake(52, 20)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(25, 7.5), [options wholeProportionalFitForContentSize:CGSizeMake(100, 30)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(25, 18.75), [options wholeProportionalFitForContentSize:CGSizeMake(200, 150)], @"Wrong proportional fit");
-	XCTAssertEqual(CGSizeMake(14.5, 14.5), [options wholeProportionalFitForContentSize:CGSizeMake(29, 29)], @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(28, 28)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(28, 28), [options wholeProportionalFitForContentSize:CGSizeMake(56, 56)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(28, 14), [options wholeProportionalFitForContentSize:CGSizeMake(56, 28)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(26, 10), [options wholeProportionalFitForContentSize:CGSizeMake(52, 20)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(25, 7.5), [options wholeProportionalFitForContentSize:CGSizeMake(100, 30)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(25, 18.75), [options wholeProportionalFitForContentSize:CGSizeMake(200, 150)]), @"Wrong proportional fit");
+	XCTAssertTrue(CGSizeEqualToSize(CGSizeMake(14.5, 14.5), [options wholeProportionalFitForContentSize:CGSizeMake(29, 29)]), @"Wrong proportional fit");
 }
 
 - (void) testPDFImageView
@@ -188,7 +188,7 @@
 	[keyWindow addSubview:imageView];
 	
 	XCTAssertNotNil(imageView.currentUIImage, @"Has PDFImage, current UIImage should not be nil");
-	XCTAssertEqual(imageView.currentUIImage.size, imageView.frame.size, @"Current UIImage should be same size as PDFImageView");
+	XCTAssertTrue(CGSizeEqualToSize(imageView.currentUIImage.size, imageView.frame.size), @"Current UIImage should be same size as PDFImageView");
 	
 	UIImageView* privateImageView = [imageView.subviews objectAtIndex:0];
 	
@@ -218,7 +218,7 @@
 	PDFBarButtonItem* item = [[PDFBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:nil action:nil];
 	
 	XCTAssertNotNil(item.image, @"Bar button item should have image");
-	XCTAssertNotEqual(item.image.size, CGSizeZero, @"Bar button image should have non zero size");
+	XCTAssertFalse(CGSizeEqualToSize(item.image.size, CGSizeZero), @"Bar button image should have non zero size");
 }
 
 #pragma mark -

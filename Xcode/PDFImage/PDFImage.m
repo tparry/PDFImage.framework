@@ -170,7 +170,7 @@ static NSCache* sharedPDFImageCache = nil;
 	UIColor* tintColor = [options.tintColor copy];
 	const CGSize containerSize = options.size;
 	
-	NSString* cacheKey = [NSString stringWithFormat:@"%@-%0.2f-%@-%@", NSStringFromCGRect(rect), options.scale, tintColor.description, NSStringFromCGSize(containerSize)];
+	NSString* cacheKey = [NSString stringWithFormat:@"%@-%0.2f-%@-%@", NSStringFromCGRect(rect), scale, tintColor.description, NSStringFromCGSize(containerSize)];
 	
 	dispatch_once(&imageCacheOnceToken, ^{
 		imageCache = [[NSCache alloc] init];

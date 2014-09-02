@@ -115,6 +115,15 @@
 	[self setNeedsDisplay];
 }
 
+- (void) willMoveToWindow:(UIWindow *)newWindow
+{
+	[super willMoveToWindow:newWindow];
+	
+	//	Set the scale to that of the window's screen
+	//	The scale would only change if the image view is added to an external UIScreen
+	[options setScale:newWindow.screen.scale];
+}
+
 + (Class) layerClass
 {
 	return [PDFImageViewLayer class];
