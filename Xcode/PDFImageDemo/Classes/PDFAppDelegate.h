@@ -25,6 +25,8 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
+#import <UIKit/UIKit.h>
+
 @interface PDFAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

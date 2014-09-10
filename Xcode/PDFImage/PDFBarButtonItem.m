@@ -37,25 +37,26 @@ static BOOL isiOS7OrGreater = YES;
 @property (nonatomic, readonly) PDFImage* originalImage;
 @property (nonatomic, readonly) CGSize targetSize;
 
-- (void) updateBarButtonImage;
-
 @end
 
 @implementation PDFBarButtonItem
 
 + (void) initialize
 {
-	isiOS7OrGreater = ([UIDevice currentDevice].systemVersion.integerValue >= 7);
+	if(self == [PDFBarButtonItem class])
+	{
+		isiOS7OrGreater = ([UIDevice currentDevice].systemVersion.integerValue >= 7);
+	}
 }
 
 #pragma mark -
 
-- (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action
+- (instancetype) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action
 {
 	return [self initWithImage:image style:style target:target action:action targetSize:CGSizeMake(28, 28)];
 }
 
-- (id) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action targetSize:(CGSize) targetSize
+- (instancetype) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action targetSize:(CGSize) targetSize
 {
 	self = [super initWithImage:nil style:style target:target action:action];
 	

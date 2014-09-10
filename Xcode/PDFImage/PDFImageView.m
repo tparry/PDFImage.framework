@@ -32,23 +32,17 @@
 #import "PDFImageOptions.h"
 
 @interface PDFImageView ()
-{
-	BOOL hasInited;
-	
-	PDFImageOptions* options;	//	Bridged options from our properties
-	UIImageView* imageView;
-}
 
-- (void) initPDFImageView;
+//	Bridged options from our properties
+@property (nonatomic, readonly) PDFImageOptions* options;
+
+@property (nonatomic, readonly) UIImageView* imageView;
 
 @end
 
 @implementation PDFImageView
 
-@synthesize image;
-@dynamic tintColor;
-
-- (id) initWithFrame:(CGRect)frame
+- (instancetype) initWithFrame:(CGRect)frame
 {
 	self = [super initWithFrame:frame];
 	
@@ -56,36 +50,15 @@
 	{
 		[self setBackgroundColor:[UIColor clearColor]];
 		
-		[self initPDFImageView];
+		_options = [[PDFImageOptions alloc] init];
+		[_options setContentMode:self.contentMode];
+		
+		_imageView = [[UIImageView alloc] init];
+		[_imageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+		[self addSubview:_imageView];
 	}
 	
 	return self;
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-	self = [super initWithCoder:aDecoder];
-	
-	if(self != nil)
-	{
-		[self initPDFImageView];
-	}
-	
-	return self;
-}
-
-- (void) initPDFImageView
-{
-	if(hasInited)
-		return;
-	hasInited = YES;
-	
-	options = [[PDFImageOptions alloc] init];
-	[options setContentMode:self.contentMode];
-	
-	imageView = [[UIImageView alloc] init];
-	[imageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-	[self addSubview:imageView];
 }
 
 #pragma mark -
@@ -96,21 +69,21 @@
 	[super layoutSubviews];
 	
 	CGRect imageViewFrame = self.bounds;
-	[imageView setFrame:imageViewFrame];
+	[self.imageView setFrame:imageViewFrame];
 }
 
 - (void) drawRect:(CGRect)rect
 {
 	[super drawRect:rect];
 	
-	[imageView setImage:self.currentUIImage];
+	[self.imageView setImage:self.currentUIImage];
 }
 
 - (void) setContentMode:(UIViewContentMode)contentMode
 {
 	[super setContentMode:contentMode];
 	
-	[options setContentMode:contentMode];
+	[self.options setContentMode:contentMode];
 	
 	[self setNeedsDisplay];
 }
@@ -121,7 +94,7 @@
 	
 	//	Set the scale to that of the window's screen
 	//	The scale would only change if the image view is added to an external UIScreen
-	[options setScale:newWindow.screen.scale];
+	[self.options setScale:newWindow.screen.scale];
 }
 
 + (Class) layerClass
@@ -132,32 +105,32 @@
 #pragma mark -
 #pragma mark Self
 
-- (void) setImage:(PDFImage *)_image
+- (void) setImage:(PDFImage *)image
 {
-	image = _image;
+	_image = image;
 	
 	[self setNeedsDisplay];
 }
 
 - (UIColor*) tintColor
 {
-	return options.tintColor;
+	return self.options.tintColor;
 }
 
 - (void) setTintColor:(UIColor *)tintColor
 {
-	[options setTintColor:tintColor];
+	[self.options setTintColor:tintColor];
 	
 	[self setNeedsDisplay];
 }
 
 - (UIImage*) currentUIImage
 {
-	[options setSize:self.frame.size];
+	[self.options setSize:self.frame.size];
 	
-	if(!CGSizeEqualToSize(options.size, CGSizeZero))
+	if(!CGSizeEqualToSize(self.options.size, CGSizeZero))
 	{
-		UIImage* currentUIImage = [image imageWithOptions:options];
+		UIImage* currentUIImage = [self.image imageWithOptions:self.options];
 		return currentUIImage;
 	}
 	

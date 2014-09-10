@@ -25,6 +25,8 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
+#import <UIKit/UIKit.h>
+
 @class PDFImage;
 
 @interface PDFImageView : UIView

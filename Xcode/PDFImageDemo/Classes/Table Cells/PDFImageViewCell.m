@@ -35,7 +35,7 @@ static const NSUInteger kImageViewCount = 2;
 
 @synthesize pdfImageViews = _pdfImageViews;
 
-- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	

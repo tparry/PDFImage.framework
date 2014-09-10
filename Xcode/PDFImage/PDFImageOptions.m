@@ -29,12 +29,7 @@
 
 @implementation PDFImageOptions
 
-@synthesize scale;
-@synthesize tintColor;
-@synthesize size;
-@synthesize contentMode;
-
-+ (PDFImageOptions*) optionsWithSize:(CGSize) size
++ (instancetype) optionsWithSize:(CGSize) size
 {
 	PDFImageOptions* options = [[self alloc] init];
 	[options setSize:size];
@@ -43,13 +38,13 @@
 
 #pragma mark -
 
-- (id) init
+- (instancetype) init
 {
 	self = [super init];
 	
 	if(self != nil)
 	{
-		contentMode = UIViewContentModeScaleToFill;
+		_contentMode = UIViewContentModeScaleToFill;
 	}
 	
 	return self;
@@ -60,7 +55,8 @@
 
 - (CGRect) contentBoundsForContentSize:(CGSize) contentSize
 {
-	const CGSize containerSize = size;
+	const CGSize containerSize = self.size;
+	const UIViewContentMode contentMode = self.contentMode;
 	
 	CGRect rect = CGRectZero;
 	
@@ -154,7 +150,7 @@
 
 - (CGSize) wholeProportionalFitForContentSize:(CGSize) contentSize
 {
-	const CGSize containerSize = size;
+	const CGSize containerSize = self.size;
 	
 	if(contentSize.width > containerSize.width || contentSize.height > containerSize.height)
 	{

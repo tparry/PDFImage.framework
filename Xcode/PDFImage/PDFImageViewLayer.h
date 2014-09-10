@@ -25,6 +25,8 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
+#import <UIKit/UIKit.h>
+
 //	A private class used by PDFImageView,
 //	it's sole purpose is to redraw half way through an animation to keep the animation looking smooth
 @interface PDFImageViewLayer : CALayer

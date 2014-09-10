@@ -28,11 +28,8 @@
 #import "PDFImageViewLayer.h"
 
 @interface PDFImageViewLayer ()
-{
-	CAAnimation* lastSizeAnimation;
-}
 
-- (void) delayedSetNeedsDisplay;
+@property (nonatomic, strong) CAAnimation* lastSizeAnimation;
 
 @end
 
@@ -48,13 +45,13 @@
 	const BOOL newFrameIsBigger = (frame.size.width > currentFrame.size.width ||
 								   frame.size.height > currentFrame.size.height);
 	
-	lastSizeAnimation = nil;
+	[self setLastSizeAnimation:nil];
 	
 	[super setFrame:frame];
 	
 	//	Delay a redraw for smooth transition when animating size
 	const CGFloat redrawOffset = ((newFrameIsBigger) ? 0 : 0.9);
-	const NSTimeInterval delay = lastSizeAnimation.duration * redrawOffset + lastSizeAnimation.beginTime;
+	const NSTimeInterval delay = self.lastSizeAnimation.duration * redrawOffset + self.lastSizeAnimation.beginTime;
 	
 	if(delay > 0)
 		[self performSelector:@selector(delayedSetNeedsDisplay) withObject:nil afterDelay:delay];
@@ -62,7 +59,7 @@
 		[self setNeedsDisplay];
 	
 	//	Clear what we found
-	lastSizeAnimation = nil;
+	[self setLastSizeAnimation:nil];
 }
 
 - (void) addAnimation:(CAAnimation *)anim forKey:(NSString *)key
@@ -74,8 +71,9 @@
 		CAPropertyAnimation* propertyAnimation = (id)anim;
 		
 		//	If we're animating the size, mark the duration (for use in the setFrame: method)
-		if([propertyAnimation.keyPath isEqualToString:@"bounds"])
-			lastSizeAnimation = anim;
+		if([propertyAnimation.keyPath isEqualToString:@"bounds"] ||		//	iOS <= 7 animation key
+		   [propertyAnimation.keyPath isEqualToString:@"bounds.size"])	//	iOS >= 8 animation key
+			[self setLastSizeAnimation:anim];
 	}
 }
 

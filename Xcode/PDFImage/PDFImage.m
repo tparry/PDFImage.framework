@@ -33,25 +33,23 @@ static NSCache* sharedPDFImageCache = nil;
 
 @interface PDFImage ()
 {
-	CGPDFDocumentRef document;
-	CGPDFPageRef page;
-	
-	NSCache* imageCache;
-	dispatch_once_t imageCacheOnceToken;
+	NSCache* _imageCache;
+	dispatch_once_t _imageCacheOnceToken;
 }
+
+@property (nonatomic, readonly) CGPDFDocumentRef document;
+@property (nonatomic, readonly) CGPDFPageRef page;
 
 @end
 
 @implementation PDFImage
 
-@synthesize size;
-
-+ (PDFImage*) imageNamed:(NSString*) name
++ (instancetype) imageNamed:(NSString*) name
 {
 	return [self imageNamed:name inBundle:[NSBundle mainBundle]];
 }
 
-+ (PDFImage*) imageNamed:(NSString*) name inBundle:(NSBundle*) bundle
++ (instancetype) imageNamed:(NSString*) name inBundle:(NSBundle*) bundle
 {
 	//	Defaults
 	NSString* pathName = name;
@@ -83,7 +81,7 @@ static NSCache* sharedPDFImageCache = nil;
 	return [self imageResource:pathName ofType:pathType inBundle:bundle];
 }
 
-+ (PDFImage*) imageResource:(NSString*) name ofType:(NSString*) type inBundle:(NSBundle*) bundle
++ (instancetype) imageResource:(NSString*) name ofType:(NSString*) type inBundle:(NSBundle*) bundle
 {
 	NSString* filepath = [bundle pathForResource:name ofType:type];
 	NSString* cacheKey = filepath;
@@ -97,9 +95,7 @@ static NSCache* sharedPDFImageCache = nil;
 	
 	if(result == nil)
 	{
-		//	Done in two parts to keep the type strict...
-		PDFImage* alloced = [self alloc];
-		result = [alloced initWithContentsOfFile:filepath];
+		result = [(PDFImage*)[self alloc] initWithContentsOfFile:filepath];
 		
 		if(result != nil)
 			[sharedPDFImageCache setObject:result forKey:cacheKey];
@@ -108,51 +104,49 @@ static NSCache* sharedPDFImageCache = nil;
 	return result;
 }
 
-+ (PDFImage*) imageWithContentsOfFile:(NSString*) path
++ (instancetype) imageWithContentsOfFile:(NSString*) path
 {
-	PDFImage* alloced = [self alloc];
-	return [alloced initWithContentsOfFile:path];
+	return [(PDFImage*)[self alloc] initWithContentsOfFile:path];
 }
 
-+ (PDFImage*) imageWithData:(NSData*) data
++ (instancetype) imageWithData:(NSData*) data
 {
-	PDFImage* alloced = [self alloc];
-	return [alloced initWithData:data];
+	return [(PDFImage*)[self alloc] initWithData:data];
 }
 
-- (id) initWithContentsOfFile:(NSString*) path
+- (instancetype) initWithContentsOfFile:(NSString*) path
 {
 	NSData* data = [[NSData alloc] initWithContentsOfFile:path];
 	return [self initWithData:data];
 }
 
-- (id) initWithData:(NSData*) data
+- (instancetype) initWithData:(NSData*) data
 {
 	CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-	CGPDFDocumentRef _document = CGPDFDocumentCreateWithProvider(provider);
+	CGPDFDocumentRef document = CGPDFDocumentCreateWithProvider(provider);
 	CGDataProviderRelease(provider);
 	
-	id result = [self initWithDocument:_document];
+	id result = [self initWithDocument:document];
 	
-	if(_document != nil)
-		CGPDFDocumentRelease(_document);
+	if(document != nil)
+		CGPDFDocumentRelease(document);
 	
 	return result;
 }
 
-- (id) initWithDocument:(CGPDFDocumentRef) _document
+- (instancetype) initWithDocument:(CGPDFDocumentRef) document
 {
-	if(_document == nil)
+	if(document == nil)
 		return nil;
 	
 	self = [super init];
 	
 	if(self != nil)
 	{
-		document = CGPDFDocumentRetain(_document);
-		page = CGPDFDocumentGetPage(document, 1);
+		_document = CGPDFDocumentRetain(document);
+		_page = CGPDFDocumentGetPage(_document, 1);
 		
-		size = CGPDFPageGetBoxRect(page, kCGPDFMediaBox).size;
+		_size = CGPDFPageGetBoxRect(_page, kCGPDFMediaBox).size;
 	}
 	
 	return self;
@@ -164,7 +158,7 @@ static NSCache* sharedPDFImageCache = nil;
 - (UIImage*) imageWithOptions:(PDFImageOptions*) options
 {
 	//	Where to draw the image
-	const CGRect rect = [options contentBoundsForContentSize:size];
+	const CGRect rect = [options contentBoundsForContentSize:self.size];
 	
 	const CGFloat scale = options.scale;
 	UIColor* tintColor = [options.tintColor copy];
@@ -172,11 +166,11 @@ static NSCache* sharedPDFImageCache = nil;
 	
 	NSString* cacheKey = [NSString stringWithFormat:@"%@-%0.2f-%@-%@", NSStringFromCGRect(rect), scale, tintColor.description, NSStringFromCGSize(containerSize)];
 	
-	dispatch_once(&imageCacheOnceToken, ^{
-		imageCache = [[NSCache alloc] init];
+	dispatch_once(&_imageCacheOnceToken, ^{
+		_imageCache = [[NSCache alloc] init];
 	});
 	
-	UIImage* image = [imageCache objectForKey:cacheKey];
+	UIImage* image = [_imageCache objectForKey:cacheKey];
 	
 	if(image == nil)
 	{
@@ -203,7 +197,7 @@ static NSCache* sharedPDFImageCache = nil;
 		UIGraphicsEndImageContext();
 		
 		if(image != nil)
-			[imageCache setObject:image forKey:cacheKey];
+			[_imageCache setObject:image forKey:cacheKey];
 	}
 	
 	return image;
@@ -212,6 +206,7 @@ static NSCache* sharedPDFImageCache = nil;
 - (void) drawInRect:(CGRect) rect
 {
 	const CGSize drawSize = rect.size;
+	const CGSize size = self.size;
 	const CGSize sizeRatio = CGSizeMake(size.width / drawSize.width, size.height / drawSize.height);
 	
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -222,7 +217,7 @@ static NSCache* sharedPDFImageCache = nil;
 	CGContextScaleCTM(ctx, 1 / sizeRatio.width, 1 / -sizeRatio.height);
 	CGContextTranslateCTM(ctx, rect.origin.x * sizeRatio.width, (-drawSize.height - rect.origin.y) * sizeRatio.height);
 	
-	CGContextDrawPDFPage(ctx, page);
+	CGContextDrawPDFPage(ctx, self.page);
 	
 	CGContextRestoreGState(ctx);
 }
@@ -232,10 +227,10 @@ static NSCache* sharedPDFImageCache = nil;
 
 - (void) dealloc
 {
-	if(document != nil)
+	if(_document != nil)
 	{
-		CGPDFDocumentRelease(document);
-		document = nil;
+		CGPDFDocumentRelease(_document);
+		_document = nil;
 	}
 }
 

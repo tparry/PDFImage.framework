@@ -45,18 +45,18 @@
 
 @property (nonatomic, readonly) CGSize size;	//	original page size
 
-+ (PDFImage*) imageNamed:(NSString*) name;		//	from the main bundle, the .pdf extension can be omitted,
++ (instancetype) imageNamed:(NSString*) name;		//	from the main bundle, the .pdf extension can be omitted,
 												//	this and +imageNamed:inBundle: are the only methods that will NSCache PDFImages, as bundles are read-only
 
-+ (PDFImage*) imageNamed:(NSString*) name inBundle:(NSBundle*) bundle;
++ (instancetype) imageNamed:(NSString*) name inBundle:(NSBundle*) bundle;
 
-+ (PDFImage*) imageWithContentsOfFile:(NSString*) path;
-+ (PDFImage*) imageWithData:(NSData*) data;
++ (instancetype) imageWithContentsOfFile:(NSString*) path;
++ (instancetype) imageWithData:(NSData*) data;
 
-- (id) initWithContentsOfFile:(NSString*) path;
-- (id) initWithData:(NSData*) data;
+- (instancetype) initWithContentsOfFile:(NSString*) path;
+- (instancetype) initWithData:(NSData*) data;
 
-- (id) initWithDocument:(CGPDFDocumentRef) document;
+- (instancetype) initWithDocument:(CGPDFDocumentRef) document;
 
 - (UIImage*) imageWithOptions:(PDFImageOptions*) options;	//	will NSCache the image if the same options are used again
 - (void) drawInRect:(CGRect) rect;

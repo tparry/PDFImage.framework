@@ -29,35 +29,40 @@
 
 #import <PDFImage/PDFImage.h>
 
-@interface PDFImageDemoTests : XCTestCase
-{
-	NSBundle* bundle;
-	UIWindow* keyWindow;
-}
+@interface PDFImageTests : XCTestCase
 
-- (void) pause:(NSTimeInterval) seconds;
+@property (nonatomic, readonly) NSBundle* bundle;
+@property (nonatomic, readonly) UIWindow* keyWindow;
 
 @end
 
-@implementation PDFImageDemoTests
+@implementation PDFImageTests
 
-- (void)setUp
+- (instancetype) initWithInvocation:(NSInvocation *)invocation
 {
-	[super setUp];
+	self = [super initWithInvocation:invocation];
 	
-	bundle = [NSBundle bundleForClass:[self class]];
-	keyWindow = [UIApplication sharedApplication].keyWindow;
+	if(self != nil)
+	{
+		_bundle = [NSBundle bundleForClass:[self class]];
+		_keyWindow = [UIApplication sharedApplication].keyWindow;
+	}
+	
+	return self;
 }
+
+#pragma mark -
+#pragma mark Tests
 
 - (void) testPDFImage
 {
-	PDFImage* image = [PDFImage imageNamed:@"0" inBundle:bundle];
+	PDFImage* image = [PDFImage imageNamed:@"0" inBundle:self.bundle];
 	
 	XCTAssertNotNil(image, @"Failed loading pdf image");
 	XCTAssertEqual(image.size.width, 15.0f, @"Size not as expected");
 	XCTAssertEqual(image.size.height, 15.0f, @"Size not as expected");
 	
-	PDFImage* missing = [PDFImage imageNamed:@"non-existant" inBundle:bundle];
+	PDFImage* missing = [PDFImage imageNamed:@"non-existant" inBundle:self.bundle];
 	
 	XCTAssertNil(missing, @"Should not load missing files");
 	
@@ -70,9 +75,9 @@
 
 - (void) testPDFImageCache
 {
-	PDFImage* same1 = [PDFImage imageNamed:@"5" inBundle:bundle];
-	PDFImage* same2 = [PDFImage imageNamed:@"5" inBundle:bundle];
-	PDFImage* diff1 = [PDFImage imageNamed:@"6" inBundle:bundle];
+	PDFImage* same1 = [PDFImage imageNamed:@"5" inBundle:self.bundle];
+	PDFImage* same2 = [PDFImage imageNamed:@"5" inBundle:self.bundle];
+	PDFImage* diff1 = [PDFImage imageNamed:@"6" inBundle:self.bundle];
 	
 	XCTAssertEqual(same1, same2, @"Bundle caching should result in equal pointers");
 	XCTAssertNotEqual(same1, diff1, @"Different files should result in different pointers");
@@ -80,7 +85,7 @@
 
 - (void) testPDFImageResultCache
 {
-	PDFImage* image = [PDFImage imageNamed:@"5" inBundle:bundle];
+	PDFImage* image = [PDFImage imageNamed:@"5" inBundle:self.bundle];
 	
 	PDFImageOptions* options = [PDFImageOptions optionsWithSize:CGSizeMake(40, 40)];
 	
@@ -177,7 +182,7 @@
 
 - (void) testPDFImageView
 {
-	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:bundle];
+	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:self.bundle];
 	
 	PDFImageView* imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
 	
@@ -185,7 +190,7 @@
 	
 	[imageView setTintColor:[UIColor redColor]];
 	[imageView setImage:image];
-	[keyWindow addSubview:imageView];
+	[self.keyWindow addSubview:imageView];
 	
 	XCTAssertNotNil(imageView.currentUIImage, @"Has PDFImage, current UIImage should not be nil");
 	XCTAssertTrue(CGSizeEqualToSize(imageView.currentUIImage.size, imageView.frame.size), @"Current UIImage should be same size as PDFImageView");
@@ -205,15 +210,15 @@
 
 - (void) testPDFExtensionHandling
 {
-	XCTAssertNotNil([PDFImage imageNamed:@"extension1" inBundle:bundle], @"Failed loading pdf image");
-	XCTAssertNotNil([PDFImage imageNamed:@"extension1.pdf" inBundle:bundle], @"Failed loading pdf image");
-	XCTAssertNotNil([PDFImage imageNamed:@"extension2.PDF" inBundle:bundle], @"Failed loading pdf image");
-	XCTAssertNotNil([PDFImage imageNamed:@"extension3.PdF" inBundle:bundle], @"Failed loading pdf image");
+	XCTAssertNotNil([PDFImage imageNamed:@"extension1" inBundle:self.bundle], @"Failed loading pdf image");
+	XCTAssertNotNil([PDFImage imageNamed:@"extension1.pdf" inBundle:self.bundle], @"Failed loading pdf image");
+	XCTAssertNotNil([PDFImage imageNamed:@"extension2.PDF" inBundle:self.bundle], @"Failed loading pdf image");
+	XCTAssertNotNil([PDFImage imageNamed:@"extension3.PdF" inBundle:self.bundle], @"Failed loading pdf image");
 }
 
 - (void) testPDFBarButtonItem
 {
-	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:bundle];
+	PDFImage* image = [PDFImage imageNamed:@"3" inBundle:self.bundle];
 	
 	PDFBarButtonItem* item = [[PDFBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:nil action:nil];
 	

@@ -25,6 +25,8 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
+#import <UIKit/UIKit.h>
+
 @interface PDFImageOptions : NSObject
 
 @property (nonatomic, assign) CGFloat scale;					//	screen scale, defaults to 0, the current screen scale
@@ -33,7 +35,7 @@
 @property (nonatomic, assign) UIViewContentMode contentMode;	//	defaults to UIViewContentModeScaleToFill
 
 //	Convience method for simply spitting out a sized version
-+ (PDFImageOptions*) optionsWithSize:(CGSize) size;
++ (instancetype) optionsWithSize:(CGSize) size;
 
 - (CGRect) contentBoundsForContentSize:(CGSize) contentSize;
 
