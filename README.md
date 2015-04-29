@@ -82,3 +82,6 @@ Details
 `PDFImage` uses ARC, however if you use the precompiled [`PDFImage.framework`](../../releases/latest) it is fully compatible with MRC projects and does not require any additional compiler flags.
 
 For optimal performance, `NSCache` is used to memory-cache both bundled PDF files as well as generated `UIImages`. These are automatically purged when the device runs low on memory, or if the App is terminated.
+
+Project commenced: 3rd January 2014
+Project released: September 2014
