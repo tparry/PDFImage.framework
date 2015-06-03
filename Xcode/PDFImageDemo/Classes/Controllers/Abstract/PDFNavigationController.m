@@ -33,6 +33,4 @@
 
 @implementation PDFNavigationController
 
-
-
 @end

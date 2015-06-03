@@ -30,72 +30,74 @@
 #import <PDFImage/PDFImage.h>
 
 @interface PDFAnimationDemoViewController ()
-{
-	PDFImageView* imageView;
-	
-	CGRect frame1;
-	CGRect frame2;
-}
 
-- (void) animate;
-- (void) animate:(BOOL) toFrom;
+@property (nonatomic, readonly) PDFImageView *imageView;
+
+@property (nonatomic, readonly) CGRect frame1;
+@property (nonatomic, readonly) CGRect frame2;
 
 @end
 
 @implementation PDFAnimationDemoViewController
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self setTitle:@"PDFImageView Animation"];
-	[self setInfo:@"When animated, the PDFImageView redraws itself just once, but timed smartly to give the illusion of a smooth image for the entire animation"];
-	
-	PDFImage* image = [PDFImage imageNamed:@"11"];
-	
+
+	self.title = @"PDFImageView Animation";
+	self.info = @"When animated, the PDFImageView redraws itself just once, but timed smartly to give the illusion of a smooth image for the entire animation";
+
+	PDFImage *image = [PDFImage imageNamed:@"11"];
+
 	const CGFloat scale1 = 1;
 	const CGFloat scale2 = 30;
-	
-	frame1 = CGRectMake(40, 80, image.size.width, image.size.height);
+
+	CGRect frame1 = CGRectMake(40, 80, image.size.width, image.size.height);
 	frame1.size.width *= scale1;
 	frame1.size.height *= scale1;
-	
-	frame2 = frame1;
+	_frame1 = frame1;
+
+	CGRect frame2 = frame1;
 	frame2.size.width *= scale2;
 	frame2.size.height *= scale2;
-	
-	imageView = [[PDFImageView alloc] initWithFrame:frame1];
-	[imageView setImage:image];
-	[imageView setTintColor:[UIColor colorWithRed:0 green:0 blue:0.8 alpha:1]];
-	[self.view addSubview:imageView];
+	_frame2 = frame2;
+
+	_imageView = [[PDFImageView alloc] initWithFrame:frame1];
+	_imageView.image = image;
+	_imageView.tintColor = [UIColor colorWithRed:0 green:0 blue:0.8 alpha:1];
+	[self.view addSubview:_imageView];
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	
+
 	[self animate];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void) animate
+- (void)animate
 {
 	[self animate:YES];
 }
 
-- (void) animate:(BOOL) toFrom
+- (void)animate:(BOOL)toFrom
 {
-	[UIView animateWithDuration:1 delay:0.5 options:0 animations:^{
-		
-		[imageView setFrame:((toFrom) ? frame2 : frame1)];
-		
-	} completion:^(BOOL finished) {
-		
-		if(finished)
-			[self animate:!toFrom];
-	}];
+	[UIView animateWithDuration:1
+		delay:0.5
+		options:0
+		animations:^{
+
+		  self.imageView.frame = (toFrom ? self.frame2 : self.frame1);
+
+		}
+		completion:^(BOOL finished) {
+
+		  if (finished)
+			  [self animate:!toFrom];
+		}];
 }
 
 @end

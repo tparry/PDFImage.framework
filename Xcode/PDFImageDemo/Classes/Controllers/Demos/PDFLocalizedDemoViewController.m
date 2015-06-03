@@ -35,15 +35,15 @@
 
 @implementation PDFLocalizedDemoViewController
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self setTitle:@"Localized Resources"];
-	[self setInfo:@"Switch your language between English and Spanish to see a different bundle resource load"];
-	
-	PDFImageView* imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(40, 80, 220, 100)];
-	[imageView setImage:[PDFImage imageNamed:@"locale"]];
+
+	self.title = @"Localized Resources";
+	self.info = @"Switch your language between English and Spanish to see a different bundle resource load";
+
+	PDFImageView *imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(40, 80, 220, 100)];
+	imageView.image = [PDFImage imageNamed:@"locale"];
 	[self.view addSubview:imageView];
 }
 

@@ -29,17 +29,17 @@
 
 @interface PDFImageOptions : NSObject
 
-@property (nonatomic, assign) CGFloat scale;					//	screen scale, defaults to 0, the current screen scale
-@property (nonatomic, copy) UIColor* tintColor;					//	solid color of the image, defaults to nil, original color
-@property (nonatomic, assign) CGSize size;						//	size of the image
-@property (nonatomic, assign) UIViewContentMode contentMode;	//	defaults to UIViewContentModeScaleToFill
+@property (nonatomic, assign) CGFloat scale;				 //	screen scale, defaults to 0, the current screen scale
+@property (nonatomic, copy) UIColor *tintColor;				 //	solid color of the image, defaults to nil, original color
+@property (nonatomic, assign) CGSize size;					 //	size of the image
+@property (nonatomic, assign) UIViewContentMode contentMode; //	defaults to UIViewContentModeScaleToFill
 
 //	Convience method for simply spitting out a sized version
-+ (instancetype) optionsWithSize:(CGSize) size;
++ (instancetype)optionsWithSize:(CGSize)size;
 
-- (CGRect) contentBoundsForContentSize:(CGSize) contentSize;
+- (CGRect)contentBoundsForContentSize:(CGSize)contentSize;
 
 //	Proportionally scaled up or down by a whole number to fit the contentSize in the self.size
-- (CGSize) wholeProportionalFitForContentSize:(CGSize) contentSize;
+- (CGSize)wholeProportionalFitForContentSize:(CGSize)contentSize;
 
 @end

@@ -29,6 +29,6 @@
 
 @interface PDFViewController : UIViewController
 
-@property (nonatomic, copy) NSString* info;
+@property (nonatomic, copy) NSString *info;
 
 @end

@@ -35,22 +35,22 @@
 
 @implementation PDFTintColorDemoViewController
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self setTitle:@"Tint Color"];
-	[self setInfo:@"The same PDF file is used, however only the second image view uses a tint color"];
-	
-	PDFImage* image = [PDFImage imageNamed:@"tint"];
-	
-	PDFImageView* imageView1 = [[PDFImageView alloc] initWithFrame:CGRectMake(40, 80, 220, 100)];
-	[imageView1 setImage:image];
+
+	self.title = @"Tint Color";
+	self.info = @"The same PDF file is used, however only the second image view uses a tint color";
+
+	PDFImage *image = [PDFImage imageNamed:@"tint"];
+
+	PDFImageView *imageView1 = [[PDFImageView alloc] initWithFrame:CGRectMake(40, 80, 220, 100)];
+	imageView1.image = image;
 	[self.view addSubview:imageView1];
-	
-	PDFImageView* imageView2 = [[PDFImageView alloc] initWithFrame:CGRectMake(40, 200, 220, 100)];
-	[imageView2 setImage:image];
-	[imageView2 setTintColor:[UIColor purpleColor]];
+
+	PDFImageView *imageView2 = [[PDFImageView alloc] initWithFrame:CGRectMake(40, 200, 220, 100)];
+	imageView2.image = image;
+	imageView2.tintColor = [UIColor purpleColor];
 	[self.view addSubview:imageView2];
 }
 

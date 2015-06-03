@@ -38,16 +38,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	[window setBackgroundColor:[UIColor whiteColor]];
-	
-	PDFDemoListViewController* demoViewController = [[PDFDemoListViewController alloc] init];
-	PDFNavigationController* navigationController = [[PDFNavigationController alloc] initWithRootViewController:demoViewController];
-	
-	[window setRootViewController:navigationController];
-	
+	window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	window.backgroundColor = [UIColor whiteColor];
+
+	PDFDemoListViewController *demoViewController = [PDFDemoListViewController new];
+	PDFNavigationController *navigationController = [[PDFNavigationController alloc] initWithRootViewController:demoViewController];
+
+	window.rootViewController = navigationController;
+
 	[window makeKeyAndVisible];
-	
+
 	return YES;
 }
 

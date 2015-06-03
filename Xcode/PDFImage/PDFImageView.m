@@ -34,70 +34,70 @@
 @interface PDFImageView ()
 
 //	Bridged options from our properties
-@property (nonatomic, readonly) PDFImageOptions* options;
+@property (nonatomic, readonly) PDFImageOptions *options;
 
-@property (nonatomic, readonly) UIImageView* imageView;
+@property (nonatomic, readonly) UIImageView *imageView;
 
 @end
 
 @implementation PDFImageView
 
-- (instancetype) initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
 	self = [super initWithFrame:frame];
-	
-	if(self != nil)
+
+	if (self != nil)
 	{
-		[self setBackgroundColor:[UIColor clearColor]];
-		
-		_options = [[PDFImageOptions alloc] init];
-		[_options setContentMode:self.contentMode];
-		
-		_imageView = [[UIImageView alloc] init];
-		[_imageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+		self.backgroundColor = [UIColor clearColor];
+
+		_options = [PDFImageOptions new];
+		_options.contentMode = self.contentMode;
+
+		_imageView = [UIImageView new];
+		_imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		[self addSubview:_imageView];
 	}
-	
+
 	return self;
 }
 
 #pragma mark -
 #pragma mark Super
 
-- (void) layoutSubviews
+- (void)layoutSubviews
 {
 	[super layoutSubviews];
-	
-	CGRect imageViewFrame = self.bounds;
-	[self.imageView setFrame:imageViewFrame];
+
+	const CGRect imageViewFrame = self.bounds;
+	self.imageView.frame = imageViewFrame;
 }
 
-- (void) drawRect:(CGRect)rect
+- (void)drawRect:(CGRect)rect
 {
 	[super drawRect:rect];
-	
-	[self.imageView setImage:self.currentUIImage];
+
+	self.imageView.image = self.currentUIImage;
 }
 
-- (void) setContentMode:(UIViewContentMode)contentMode
+- (void)setContentMode:(UIViewContentMode)contentMode
 {
 	[super setContentMode:contentMode];
-	
-	[self.options setContentMode:contentMode];
-	
+
+	self.options.contentMode = contentMode;
+
 	[self setNeedsDisplay];
 }
 
-- (void) willMoveToWindow:(UIWindow *)newWindow
+- (void)willMoveToWindow:(UIWindow *)newWindow
 {
 	[super willMoveToWindow:newWindow];
-	
+
 	//	Set the scale to that of the window's screen
 	//	The scale would only change if the image view is added to an external UIScreen
-	[self.options setScale:newWindow.screen.scale];
+	self.options.scale = newWindow.screen.scale;
 }
 
-+ (Class) layerClass
++ (Class)layerClass
 {
 	return [PDFImageViewLayer class];
 }
@@ -105,35 +105,35 @@
 #pragma mark -
 #pragma mark Self
 
-- (void) setImage:(PDFImage *)image
+- (void)setImage:(PDFImage *)image
 {
 	_image = image;
-	
+
 	[self setNeedsDisplay];
 }
 
-- (UIColor*) tintColor
+- (UIColor *)tintColor
 {
 	return self.options.tintColor;
 }
 
-- (void) setTintColor:(UIColor *)tintColor
+- (void)setTintColor:(UIColor *)tintColor
 {
-	[self.options setTintColor:tintColor];
-	
+	self.options.tintColor = tintColor;
+
 	[self setNeedsDisplay];
 }
 
-- (UIImage*) currentUIImage
+- (UIImage *)currentUIImage
 {
-	[self.options setSize:self.frame.size];
-	
-	if(!CGSizeEqualToSize(self.options.size, CGSizeZero))
+	self.options.size = self.frame.size;
+
+	if (!CGSizeEqualToSize(self.options.size, CGSizeZero))
 	{
-		UIImage* currentUIImage = [self.image imageWithOptions:self.options];
+		UIImage *currentUIImage = [self.image imageWithOptions:self.options];
 		return currentUIImage;
 	}
-	
+
 	return nil;
 }
 

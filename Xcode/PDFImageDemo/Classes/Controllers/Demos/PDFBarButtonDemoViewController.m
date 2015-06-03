@@ -35,20 +35,22 @@
 
 @implementation PDFBarButtonDemoViewController
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self setInfo:@"Create a UIBarButtonItem using a PDFImage with the PDFBarButtonItem subclass"];
-	
-	PDFBarButtonItem* button1 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"3"] style:UIBarButtonItemStyleBordered target:nil action:nil];
-	PDFBarButtonItem* button2 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"4"] style:UIBarButtonItemStylePlain target:nil action:nil];
-	PDFBarButtonItem* button3 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"5"] style:UIBarButtonItemStylePlain target:nil action:nil];
-	
-	[button1 setTintColor:[UIColor redColor]];
-	[button2 setTintColor:[UIColor orangeColor]];
-	
-	[self.navigationItem setRightBarButtonItems:@[button1, button2, button3]];
+
+	self.info = @"Create a UIBarButtonItem using a PDFImage with the PDFBarButtonItem subclass";
+
+	PDFBarButtonItem *button1 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"3"] style:UIBarButtonItemStyleBordered target:nil action:nil];
+	PDFBarButtonItem *button2 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"4"] style:UIBarButtonItemStylePlain target:nil action:nil];
+	PDFBarButtonItem *button3 = [[PDFBarButtonItem alloc] initWithImage:[PDFImage imageNamed:@"5"] style:UIBarButtonItemStylePlain target:nil action:nil];
+
+	button1.tintColor = [UIColor redColor];
+	button2.tintColor = [UIColor orangeColor];
+
+	self.navigationItem.rightBarButtonItems = @[ button1,
+												 button2,
+												 button3 ];
 }
 
 @end

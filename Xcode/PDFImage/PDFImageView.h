@@ -31,10 +31,10 @@
 
 @interface PDFImageView : UIView
 
-@property (nonatomic, strong) PDFImage* image;
-@property (nonatomic, copy) UIColor* tintColor;
+@property (nonatomic, strong) PDFImage *image;
+@property (nonatomic, copy) UIColor *tintColor;
 
 //	Returns the current UIImage based on frame, tint, etc etc
-- (UIImage*) currentUIImage;
+@property (nonatomic, readonly) UIImage *currentUIImage;
 
 @end

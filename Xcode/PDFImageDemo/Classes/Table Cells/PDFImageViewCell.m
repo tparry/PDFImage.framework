@@ -33,58 +33,47 @@ static const NSUInteger kImageViewCount = 2;
 
 @implementation PDFImageViewCell
 
-@synthesize pdfImageViews = _pdfImageViews;
-
-- (instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-	
-	if(self != nil)
+
+	if (self != nil)
 	{
-		for(PDFImageView* pdfImageView in self.pdfImageViews)
+		NSMutableArray *mutablePDFImageViews = [NSMutableArray new];
+
+		for (NSUInteger i = 0; i < kImageViewCount; i++)
+		{
+			PDFImageView *pdfImageView = [PDFImageView new];
+			[mutablePDFImageViews addObject:pdfImageView];
 			[self.contentView addSubview:pdfImageView];
+		}
+
+		_pdfImageViews = [mutablePDFImageViews copy];
 	}
-	
+
 	return self;
 }
 
 #pragma mark -
 #pragma mark Super
 
-- (void) layoutSubviews
+- (void)layoutSubviews
 {
 	[super layoutSubviews];
-	
+
 	const CGFloat imageViewDimension = self.contentView.frame.size.height;
-	
-	NSArray* pdfImageViews = self.pdfImageViews;
-	
-	for(NSUInteger i = 0; i < pdfImageViews.count; i++)
-	{
-		PDFImageView* pdfImageView = [pdfImageViews objectAtIndex:i];
-		[pdfImageView setFrame:CGRectMake(imageViewDimension * (i + 1) + imageViewDimension * i, 0, imageViewDimension, imageViewDimension)];
-	}
-}
 
-#pragma mark -
-#pragma mark Self
+	NSArray *pdfImageViews = self.pdfImageViews;
 
-- (NSArray*) pdfImageViews
-{
-	if(_pdfImageViews == nil)
+	for (NSUInteger i = 0; i < pdfImageViews.count; i++)
 	{
-		NSMutableArray* mutablePDFImageViews = [[NSMutableArray alloc] init];
-		
-		for(NSUInteger i = 0; i < kImageViewCount; i++)
-		{
-			PDFImageView* pdfImageView = [[PDFImageView alloc] init];
-			[mutablePDFImageViews addObject:pdfImageView];
-		}
-		
-		_pdfImageViews = [mutablePDFImageViews copy];
+		PDFImageView *pdfImageView = pdfImageViews[i];
+
+		pdfImageView.frame = CGRectMake(imageViewDimension * (i + 1) + imageViewDimension * i,
+										0,
+										imageViewDimension,
+										imageViewDimension);
 	}
-	
-	return _pdfImageViews;
 }
 
 @end

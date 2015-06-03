@@ -43,113 +43,120 @@ typedef NS_ENUM(NSUInteger, PDFDemo)
 };
 
 @interface PDFDemoListViewController () <UITableViewDataSource, UITableViewDelegate>
-{
-	NSArray* demos;
-	UITableView* demoTableView;
-}
 
-- (PDFDemo) demoForIndexPath:(NSIndexPath*) indexPath;
-- (NSString*) nameForDemo:(PDFDemo) demo;
-- (Class) classForDemo:(PDFDemo) demo;
+@property (nonatomic, readonly) NSArray *demos;
+@property (nonatomic, readonly) UITableView *demoTableView;
 
 @end
 
 @implementation PDFDemoListViewController
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self setTitle:@"PDFImage Demo List"];
-	
+
+	self.title = @"PDFImage Demo List";
+
 	//	Demo order
-	demos = @[@(PDFDemoTintColor), @(PDFDemoTableView), @(PDFDemoAnimation), @(PDFDemoLocalized), @(PDFDemoBarButton)];
-	
-	demoTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-	[demoTableView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-	[demoTableView setDataSource:self];
-	[demoTableView setDelegate:self];
-	[self.view addSubview:demoTableView];
+	_demos = @[ @(PDFDemoTintColor),
+				@(PDFDemoTableView),
+				@(PDFDemoAnimation),
+				@(PDFDemoLocalized),
+				@(PDFDemoBarButton) ];
+
+	_demoTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	_demoTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+	_demoTableView.dataSource = self;
+	_demoTableView.delegate = self;
+	[self.view addSubview:_demoTableView];
 }
 
-- (void) viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	
-	if(demoTableView.indexPathForSelectedRow != nil)
-		[demoTableView deselectRowAtIndexPath:demoTableView.indexPathForSelectedRow animated:YES];
+
+	if (self.demoTableView.indexPathForSelectedRow != nil)
+	{
+		[self.demoTableView deselectRowAtIndexPath:self.demoTableView.indexPathForSelectedRow animated:YES];
+	}
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (PDFDemo) demoForIndexPath:(NSIndexPath*) indexPath
+- (PDFDemo)demoForIndexPath:(NSIndexPath *)indexPath
 {
-	const PDFDemo demo = [[demos objectAtIndex:indexPath.row] unsignedIntegerValue];
+	const PDFDemo demo = [self.demos[indexPath.row] unsignedIntegerValue];
 	return demo;
 }
 
-- (NSString*) nameForDemo:(PDFDemo) demo
+- (NSString *)nameForDemo:(PDFDemo)demo
 {
-	switch(demo)
+	switch (demo)
 	{
-		case PDFDemoTintColor:	return @"Tint Color";
-		case PDFDemoTableView:	return @"UITableView Performance";
-		case PDFDemoAnimation:	return @"PDFImageView Animation";
-		case PDFDemoLocalized:	return @"Localized Resources";
-		case PDFDemoBarButton:	return @"UIBarButtonItem";
+		case PDFDemoTintColor:
+			return @"Tint Color";
+		case PDFDemoTableView:
+			return @"UITableView Performance";
+		case PDFDemoAnimation:
+			return @"PDFImageView Animation";
+		case PDFDemoLocalized:
+			return @"Localized Resources";
+		case PDFDemoBarButton:
+			return @"UIBarButtonItem";
 	}
-	
-	return nil;
 }
 
-- (Class) classForDemo:(PDFDemo) demo
+- (Class)classForDemo:(PDFDemo)demo
 {
-	switch(demo)
+	switch (demo)
 	{
-		case PDFDemoTintColor:	return [PDFTintColorDemoViewController class];
-		case PDFDemoTableView:	return [PDFTableViewDemoViewController class];
-		case PDFDemoAnimation:	return [PDFAnimationDemoViewController class];
-		case PDFDemoLocalized:	return [PDFLocalizedDemoViewController class];
-		case PDFDemoBarButton:	return [PDFBarButtonDemoViewController class];
+		case PDFDemoTintColor:
+			return [PDFTintColorDemoViewController class];
+		case PDFDemoTableView:
+			return [PDFTableViewDemoViewController class];
+		case PDFDemoAnimation:
+			return [PDFAnimationDemoViewController class];
+		case PDFDemoLocalized:
+			return [PDFLocalizedDemoViewController class];
+		case PDFDemoBarButton:
+			return [PDFBarButtonDemoViewController class];
 	}
-	
-	return nil;
 }
 
 #pragma mark -
-#pragma mark UITableView Delegate
+#pragma mark UITableViewDelegate
 
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	const PDFDemo demo = [self demoForIndexPath:indexPath];
 	Class class = [self classForDemo:demo];
-	
-	UIViewController* viewController = [[class alloc] init];
+
+	UIViewController *viewController = [class new];
 	[self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return demos.count;
+	return self.demos.count;
 }
 
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString* identifier = @"demoCell";
-	
-	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-	
-	if(cell == nil)
+	static NSString *const identifier = @"demoCell";
+
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
+	if (cell == nil)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
 	}
-	
+
 	const PDFDemo demo = [self demoForIndexPath:indexPath];
-	NSString* name = [self nameForDemo:demo];
-	
-	[cell.textLabel setText:name];
-	
+	NSString *name = [self nameForDemo:demo];
+
+	cell.textLabel.text = name;
+
 	return cell;
 }
 

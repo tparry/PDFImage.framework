@@ -33,6 +33,6 @@
 
 //	Scales the image down proportionally to fit into a target size of 28x28
 //	for best results, the PDFImage should be as close to the target size as possible
-- (instancetype) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action;
+- (instancetype)initWithImage:(PDFImage *)image style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action;
 
 @end

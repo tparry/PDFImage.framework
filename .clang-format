@@ -1,0 +1,12 @@
+BasedOnStyle: LLVM
+
+DerivePointerAlignment: false
+PointerAlignment: Right
+ObjCSpaceAfterProperty: true
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+ColumnLimit: 0
+BreakBeforeBraces: Allman
+IndentCaseLabels: true
+SpacesInContainerLiterals: true

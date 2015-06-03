@@ -34,16 +34,16 @@ static BOOL isiOS7OrGreater = YES;
 
 @interface PDFBarButtonItem ()
 
-@property (nonatomic, readonly) PDFImage* originalImage;
+@property (nonatomic, readonly) PDFImage *originalImage;
 @property (nonatomic, readonly) CGSize targetSize;
 
 @end
 
 @implementation PDFBarButtonItem
 
-+ (void) initialize
++ (void)initialize
 {
-	if(self == [PDFBarButtonItem class])
+	if (self == [PDFBarButtonItem class])
 	{
 		isiOS7OrGreater = ([UIDevice currentDevice].systemVersion.integerValue >= 7);
 	}
@@ -51,56 +51,55 @@ static BOOL isiOS7OrGreater = YES;
 
 #pragma mark -
 
-- (instancetype) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action
+- (instancetype)initWithImage:(PDFImage *)image style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action
 {
 	return [self initWithImage:image style:style target:target action:action targetSize:CGSizeMake(28, 28)];
 }
 
-- (instancetype) initWithImage:(PDFImage*) image style:(UIBarButtonItemStyle) style target:(id) target action:(SEL) action targetSize:(CGSize) targetSize
+- (instancetype)initWithImage:(PDFImage *)image style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action targetSize:(CGSize)targetSize
 {
 	self = [super initWithImage:nil style:style target:target action:action];
-	
-	if(self != nil)
+
+	if (self != nil)
 	{
 		_originalImage = image;
 		_targetSize = targetSize;
-		
+
 		[self updateBarButtonImage];
 	}
-	
+
 	return self;
 }
 
 #pragma mark -
 #pragma mark Super
 
-- (void) setTintColor:(UIColor *)tintColor
+- (void)setTintColor:(UIColor *)tintColor
 {
 	[super setTintColor:tintColor];
-	
+
 	[self updateBarButtonImage];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void) updateBarButtonImage
+- (void)updateBarButtonImage
 {
-	PDFImage* originalImage = self.originalImage;
+	PDFImage *originalImage = self.originalImage;
 	const CGSize imageSize = [[PDFImageOptions optionsWithSize:self.targetSize] wholeProportionalFitForContentSize:originalImage.size];
-	
+
 	//	The color of the image,
 	//	on iOS6 we colorize it only if we're using a bordered style (not plain),
 	//	on iOS7+ white is used, as the UIBarButtonItem tint color will colorize our image anyway
-	UIColor* tintColor = self.tintColor;
-	if(tintColor == nil || (self.style != UIBarButtonItemStylePlain && !isiOS7OrGreater) || isiOS7OrGreater)
+	UIColor *tintColor = self.tintColor;
+	if (tintColor == nil || (self.style != UIBarButtonItemStylePlain && !isiOS7OrGreater) || isiOS7OrGreater)
 		tintColor = [UIColor whiteColor];
-	
-	PDFImageOptions* options = [PDFImageOptions optionsWithSize:imageSize];
-	[options setTintColor:tintColor];
-	
-	UIImage* image = [originalImage imageWithOptions:options];
-	[self setImage:image];
+
+	PDFImageOptions *options = [PDFImageOptions optionsWithSize:imageSize];
+	options.tintColor = tintColor;
+
+	self.image = [originalImage imageWithOptions:options];
 }
 
 @end

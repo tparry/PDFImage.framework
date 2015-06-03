@@ -34,68 +34,69 @@
 static const NSUInteger kDemoPDFCount = 12;
 
 @interface PDFTableViewDemoViewController () <UITableViewDataSource>
-{
-	UITableView* listTableView;
-}
 
-- (PDFImage*) imageForIndexPath:(NSIndexPath*) indexPath;
+@property (nonatomic, readonly) UITableView *listTableView;
 
 @end
 
 @implementation PDFTableViewDemoViewController
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self setTitle:@"UITableView Performance"];
-	
-	listTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-	[listTableView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-	[listTableView setDataSource:self];
-	[self.view addSubview:listTableView];
+
+	self.title = @"UITableView Performance";
+
+	_listTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	_listTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+	_listTableView.dataSource = self;
+	[self.view addSubview:_listTableView];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (PDFImage*) imageForIndexPath:(NSIndexPath*) indexPath
+- (PDFImage *)imageForIndexPath:(NSIndexPath *)indexPath
 {
-	NSString* filename = @(indexPath.row % kDemoPDFCount).stringValue;
-	PDFImage* image = [PDFImage imageNamed:filename];
+	NSString *filename = @(indexPath.row % kDemoPDFCount).stringValue;
+	PDFImage *image = [PDFImage imageNamed:filename];
 	return image;
 }
 
 #pragma mark -
 #pragma mark UITableView Delegate
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	return 1000;
 }
 
-- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString* identifier = @"listCell";
-	
-	PDFImageViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-	
-	if(cell == nil)
+	static NSString *identifier = @"listCell";
+
+	PDFImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
+	if (cell == nil)
 	{
 		cell = [[PDFImageViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-		
-		UIColor* tintColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
-		
-		for(PDFImageView* pdfImageView in cell.pdfImageViews)
-			[pdfImageView setTintColor:tintColor];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+		UIColor *tintColor = [UIColor colorWithRed:0.8 green:0 blue:0 alpha:1];
+
+		for (PDFImageView *pdfImageView in cell.pdfImageViews)
+		{
+			pdfImageView.tintColor = tintColor;
+		}
 	}
-	
-	PDFImage* image = [self imageForIndexPath:indexPath];
-	
-	for(PDFImageView* pdfImageView in cell.pdfImageViews)
-		[pdfImageView setImage:image];
-	
+
+	PDFImage *image = [self imageForIndexPath:indexPath];
+
+	for (PDFImageView *pdfImageView in cell.pdfImageViews)
+	{
+		pdfImageView.image = image;
+	}
+
 	return cell;
 }
 

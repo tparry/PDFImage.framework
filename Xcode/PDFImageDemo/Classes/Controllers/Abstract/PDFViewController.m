@@ -28,54 +28,52 @@
 #import "PDFViewController.h"
 
 @interface PDFViewController ()
-{
-	UILabel* _infoLabel;
-}
 
-- (UILabel*) infoLabel;
+@property (nonatomic, readonly) UILabel *infoLabel;
 
 @end
 
 @implementation PDFViewController
 
 @dynamic info;
+@synthesize infoLabel = _infoLabel;
 
-- (void) viewDidLoad
+- (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-	[self.view setBackgroundColor:[UIColor whiteColor]];
+
+	self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void) viewDidLayoutSubviews
+- (void)viewDidLayoutSubviews
 {
 	[super viewDidLayoutSubviews];
-	
-	if(_infoLabel != nil)
+
+	if (_infoLabel != nil)
 	{
-		UILabel* infoLabel = _infoLabel;
-		
+		UILabel *infoLabel = _infoLabel;
+
 		CGRect infoLabelFrame = CGRectZero;
 		infoLabelFrame.origin.x = 10;
 		infoLabelFrame.size.width = self.view.frame.size.width - infoLabelFrame.origin.x * 2;
-		infoLabelFrame.size.height = ceilf([infoLabel.text sizeWithFont:infoLabel.font constrainedToSize:CGSizeMake(infoLabelFrame.size.width, CGFLOAT_MAX) lineBreakMode:infoLabel.lineBreakMode].height);
+		infoLabelFrame.size.height = [infoLabel sizeThatFits:CGSizeMake(infoLabelFrame.size.width, CGFLOAT_MAX)].height;
 		infoLabelFrame.origin.y = self.view.frame.size.height - infoLabelFrame.size.height - 10;
-		
-		[infoLabel setFrame:infoLabelFrame];
+
+		infoLabel.frame = infoLabelFrame;
 	}
 }
 
 #pragma mark -
 #pragma mark Self
 
-- (void) setInfo:(NSString *)info
+- (void)setInfo:(NSString *)info
 {
-	[self.infoLabel setText:info];
-	
+	self.infoLabel.text = info;
+
 	[self.view setNeedsLayout];
 }
 
-- (NSString*) info
+- (NSString *)info
 {
 	return _infoLabel.text;
 }
@@ -83,19 +81,19 @@
 #pragma mark -
 #pragma mark Private
 
-- (UILabel*) infoLabel
+- (UILabel *)infoLabel
 {
-	if(_infoLabel == nil)
+	if (_infoLabel == nil)
 	{
-		_infoLabel = [[UILabel alloc] init];
-		[_infoLabel setNumberOfLines:0];
-		[_infoLabel setFont:[UIFont systemFontOfSize:17]];
-		[_infoLabel setTextColor:[UIColor colorWithWhite:0.2 alpha:1]];
+		_infoLabel = [UILabel new];
+		_infoLabel.numberOfLines = 0;
+		_infoLabel.font = [UIFont systemFontOfSize:17];
+		_infoLabel.textColor = [UIColor colorWithWhite:0.2 alpha:1];
 		[self.view addSubview:_infoLabel];
-		
+
 		[self.view setNeedsLayout];
 	}
-	
+
 	return _infoLabel;
 }
 

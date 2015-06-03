@@ -27,47 +27,47 @@ Add the following line to import the required classes.
 
 Syntax is similar to creating a `UIImage`:
 
-    PDFImage* image = [PDFImage imageNamed:@"email"];
+    PDFImage *image = [PDFImage imageNamed:@"email"];
 
 This will load the `email.pdf` file from the main bundle.
 
 To show the `PDFImage` on the screen:
 
-    PDFImage* image = [PDFImage imageNamed:@"email"];
+    PDFImage *image = [PDFImage imageNamed:@"email"];
     
-    PDFImageView* imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    [imageView setImage:image];
+    PDFImageView *imageView = [[PDFImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    imageView.image = image;
     [view addSubview:imageView];
     
 The `PDFImageView` will automatically make sure a pixel perfect version of the loaded PDF is drawn to screen, even if the view is resized or animated.
 
 A `UIImage` can be generated as so:
 
-    PDFImage* image = [PDFImage imageNamed:@"email"];
+    PDFImage *image = [PDFImage imageNamed:@"email"];
     
-    PDFImageOptions* options = [PDFImageOptions optionsWithSize:CGSizeMake(50, 50)];
+    PDFImageOptions *options = [PDFImageOptions optionsWithSize:CGSizeMake(50, 50)];
     
-    UIImage* result = [image imageWithOptions:options];
+    UIImage *result = [image imageWithOptions:options];
     
 By default, the resulting `UIImage` is drawn scale to fill. If required, the options can use any `UIViewContentMode` to adjust how the result is drawn.
 
-    PDFImage* image = [PDFImage imageNamed:@"email"];
+    PDFImage *image = [PDFImage imageNamed:@"email"];
     
-    PDFImageOptions* options = [PDFImageOptions optionsWithSize:CGSizeMake(50, 50)];
-    [options setContentMode:UIViewContentModeScaleAspectFit];
+    PDFImageOptions *options = [PDFImageOptions optionsWithSize:CGSizeMake(50, 50)];
+    options.contentMode = UIViewContentModeScaleAspectFit;
     
-    UIImage* result = [image imageWithOptions:options];
+    UIImage *result = [image imageWithOptions:options];
 
 
 A tintColor can also be specified to change the entire color, useful for reusing the same graphics in different colors.
 
-    PDFImageOptions* options = ...;
-    [options setTintColor:[UIColor redColor]];
+    PDFImageOptions *options = ...;
+    options.tintColor = [UIColor redColor];
     
     //  or
     
-    PDFImageView* imageView = ...;
-    [imageView setTintColor:[UIColor redColor]];
+    PDFImageView *imageView = ...;
+    imageView.tintColor = [UIColor redColor];
 
 See the included headers of the [`PDFImage.framework`](../../releases/latest) for the full API interface.
 

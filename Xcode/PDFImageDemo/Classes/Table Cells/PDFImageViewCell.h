@@ -31,6 +31,6 @@
 
 @interface PDFImageViewCell : UITableViewCell
 
-@property (nonatomic, readonly) NSArray* pdfImageViews;	//	array of PDFImageView
+@property (nonatomic, readonly) NSArray *pdfImageViews; //	array of PDFImageView
 
 @end

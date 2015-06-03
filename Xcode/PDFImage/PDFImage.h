@@ -43,22 +43,22 @@
 //	may result in a new instance and not the version in NSCache, the same applies to imageWithOptions:
 @interface PDFImage : NSObject
 
-@property (nonatomic, readonly) CGSize size;	//	original page size
+@property (nonatomic, readonly) CGSize size; //	original page size
 
-+ (instancetype) imageNamed:(NSString*) name;		//	from the main bundle, the .pdf extension can be omitted,
-												//	this and +imageNamed:inBundle: are the only methods that will NSCache PDFImages, as bundles are read-only
++ (instancetype)imageNamed:(NSString *)name; //	from the main bundle, the .pdf extension can be omitted,
+											 //	this and +imageNamed:inBundle: are the only methods that will NSCache PDFImages, as bundles are read-only
 
-+ (instancetype) imageNamed:(NSString*) name inBundle:(NSBundle*) bundle;
++ (instancetype)imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 
-+ (instancetype) imageWithContentsOfFile:(NSString*) path;
-+ (instancetype) imageWithData:(NSData*) data;
++ (instancetype)imageWithContentsOfFile:(NSString *)path;
++ (instancetype)imageWithData:(NSData *)data;
 
-- (instancetype) initWithContentsOfFile:(NSString*) path;
-- (instancetype) initWithData:(NSData*) data;
+- (instancetype)initWithContentsOfFile:(NSString *)path;
+- (instancetype)initWithData:(NSData *)data;
 
-- (instancetype) initWithDocument:(CGPDFDocumentRef) document;
+- (instancetype)initWithDocument:(CGPDFDocumentRef)document;
 
-- (UIImage*) imageWithOptions:(PDFImageOptions*) options;	//	will NSCache the image if the same options are used again
-- (void) drawInRect:(CGRect) rect;
+- (UIImage *)imageWithOptions:(PDFImageOptions *)options; //	will NSCache the image if the same options are used again
+- (void)drawInRect:(CGRect)rect;
 
 @end
