@@ -25,21 +25,23 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
-#import <UIKit/UIKit.h>
+#import "PDFDesignableDemoViewController.h"
 
-@class PDFImage;
+@interface PDFDesignableDemoViewController ()
 
-IB_DESIGNABLE
-@interface PDFImageView : UIView
+@end
 
-@property (nonatomic, strong) PDFImage *image;
-@property (nonatomic, copy) IBInspectable UIColor *tintColor;
+@implementation PDFDesignableDemoViewController
 
-//	The imageName setter is used for IBDesignables, the getter should not be used
-@property (nonatomic, copy) IBInspectable NSString *imageName;
-- (NSString *)imageName UNAVAILABLE_ATTRIBUTE;
+- (void)loadView
+{
+	self.view = [[NSBundle mainBundle] loadNibNamed:@"DemoView" owner:self options:nil].firstObject;
+}
 
-//	Returns the current UIImage based on frame, tint, etc etc
-@property (nonatomic, readonly) UIImage *currentUIImage;
+- (void)viewDidLoad
+{
+	self.title = @"IBDesignable Support";
+	self.info = @"Full IBDesignable support, view the DemoView.xib to interactively change the image and tint color of this PDFImageView";
+}
 
 @end

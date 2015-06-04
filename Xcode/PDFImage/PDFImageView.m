@@ -42,6 +42,20 @@
 
 @implementation PDFImageView
 
+@dynamic imageName;
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+
+	if (self != nil)
+	{
+		[self setupImageView];
+	}
+
+	return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
 	self = [super initWithFrame:frame];
@@ -49,16 +63,20 @@
 	if (self != nil)
 	{
 		self.backgroundColor = [UIColor clearColor];
-
-		_options = [PDFImageOptions new];
-		_options.contentMode = self.contentMode;
-
-		_imageView = [UIImageView new];
-		_imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-		[self addSubview:_imageView];
+		[self setupImageView];
 	}
 
 	return self;
+}
+
+- (void)setupImageView
+{
+	_options = [PDFImageOptions new];
+	_options.contentMode = self.contentMode;
+
+	_imageView = [UIImageView new];
+	_imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+	[self addSubview:_imageView];
 }
 
 #pragma mark -
@@ -124,6 +142,52 @@
 	[self setNeedsDisplay];
 }
 
+- (void)setImageName:(NSString *)imageName
+{
+	PDFImage *image = [PDFImage imageNamed:imageName];
+
+#if TARGET_INTERFACE_BUILDER
+
+	//	When using IBDesignables in Interface Builder
+	//	the main NSBundle is not the app's so we can't get resources from it
+	if (image == nil)
+	{
+		//	Instead, search through all NSBundles for the image
+		for (NSBundle *bundle in [NSBundle allBundles])
+		{
+			image = [PDFImage imageNamed:imageName inBundle:bundle];
+
+			if (image != nil)
+			{
+				break;
+			}
+		}
+
+		//	Because PDFImage is a framework, if your IB file has no references to the main app source
+		//	then it will never load the NSBundle with your resources for the above code to find
+		//	This is the worst case scenario, instead look through the source directories for the resource
+		if (image == nil)
+		{
+			const NSUInteger kSearchDepth = 10;
+			NSArray *sourceDirectories = [[NSProcessInfo processInfo].environment[@"IB_PROJECT_SOURCE_DIRECTORIES"] componentsSeparatedByString:@":"];
+
+			for (NSString *sourceDirectory in sourceDirectories)
+			{
+				image = [self recursiveImageNamed:imageName inPath:sourceDirectory searchDepth:kSearchDepth];
+
+				if (image != nil)
+				{
+					break;
+				}
+			}
+		}
+	}
+
+#endif /* TARGET_INTERFACE_BUILDER */
+
+	self.image = image;
+}
+
 - (UIImage *)currentUIImage
 {
 	self.options.size = self.frame.size;
@@ -135,6 +199,50 @@
 	}
 
 	return nil;
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (PDFImage *)recursiveImageNamed:(NSString *)imageName inPath:(NSString *)path searchDepth:(NSUInteger)depth
+{
+	PDFImage *image = nil;
+
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+
+	//	imageName assumed to be extensionless targeting a .pdf file
+	NSString *imagePath = [[path stringByAppendingPathComponent:imageName] stringByAppendingPathExtension:@"pdf"];
+
+	if ([fileManager fileExistsAtPath:imagePath])
+	{
+		image = [PDFImage imageWithContentsOfFile:imagePath];
+	}
+
+	//	If we haven't found the image yet, search deeper
+	//	(as long as we've still got depth left)
+	if (image == nil && depth > 0)
+	{
+		NSArray *filenames = [fileManager contentsOfDirectoryAtPath:path error:nil];
+
+		for (NSString *filename in filenames)
+		{
+			NSString *subpath = [path stringByAppendingPathComponent:filename];
+
+			//	Search subdirectories
+			BOOL isDirectory;
+			if ([fileManager fileExistsAtPath:subpath isDirectory:&isDirectory] && isDirectory)
+			{
+				image = [self recursiveImageNamed:imageName inPath:subpath searchDepth:(depth - 1)];
+
+				if (image != nil)
+				{
+					break;
+				}
+			}
+		}
+	}
+
+	return image;
 }
 
 @end

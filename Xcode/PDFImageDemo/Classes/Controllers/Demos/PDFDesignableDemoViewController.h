@@ -25,21 +25,8 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
-#import <UIKit/UIKit.h>
+#import "PDFViewController.h"
 
-@class PDFImage;
-
-IB_DESIGNABLE
-@interface PDFImageView : UIView
-
-@property (nonatomic, strong) PDFImage *image;
-@property (nonatomic, copy) IBInspectable UIColor *tintColor;
-
-//	The imageName setter is used for IBDesignables, the getter should not be used
-@property (nonatomic, copy) IBInspectable NSString *imageName;
-- (NSString *)imageName UNAVAILABLE_ATTRIBUTE;
-
-//	Returns the current UIImage based on frame, tint, etc etc
-@property (nonatomic, readonly) UIImage *currentUIImage;
+@interface PDFDesignableDemoViewController : PDFViewController
 
 @end

@@ -32,6 +32,7 @@
 #import "PDFAnimationDemoViewController.h"
 #import "PDFLocalizedDemoViewController.h"
 #import "PDFBarButtonDemoViewController.h"
+#import "PDFDesignableDemoViewController.h"
 
 typedef NS_ENUM(NSUInteger, PDFDemo)
 {
@@ -40,6 +41,7 @@ typedef NS_ENUM(NSUInteger, PDFDemo)
 	PDFDemoAnimation,
 	PDFDemoLocalized,
 	PDFDemoBarButton,
+	PDFDemoDesignable,
 };
 
 @interface PDFDemoListViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -62,7 +64,8 @@ typedef NS_ENUM(NSUInteger, PDFDemo)
 				@(PDFDemoTableView),
 				@(PDFDemoAnimation),
 				@(PDFDemoLocalized),
-				@(PDFDemoBarButton) ];
+				@(PDFDemoBarButton),
+				@(PDFDemoDesignable) ];
 
 	_demoTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 	_demoTableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -104,6 +107,8 @@ typedef NS_ENUM(NSUInteger, PDFDemo)
 			return @"Localized Resources";
 		case PDFDemoBarButton:
 			return @"UIBarButtonItem";
+		case PDFDemoDesignable:
+			return @"IBDesignable Support";
 	}
 }
 
@@ -121,6 +126,8 @@ typedef NS_ENUM(NSUInteger, PDFDemo)
 			return [PDFLocalizedDemoViewController class];
 		case PDFDemoBarButton:
 			return [PDFBarButtonDemoViewController class];
+		case PDFDemoDesignable:
+			return [PDFDesignableDemoViewController class];
 	}
 }
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFDesignableDemoViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4gT-WB-JQU" customClass="PDFImageView">
+                    <rect key="frame" x="108" y="108" width="384" height="384"/>
+                    <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="imageName" value="0"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                            <color key="value" red="0.7843137255" green="0.23529411759999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="4gT-WB-JQU" secondAttribute="bottom" constant="108" id="DK6-wB-lrn"/>
+                <constraint firstAttribute="trailing" secondItem="4gT-WB-JQU" secondAttribute="trailing" constant="108" id="QI8-Pd-7XB"/>
+                <constraint firstItem="4gT-WB-JQU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="108" id="Ylw-vy-fXr"/>
+                <constraint firstItem="4gT-WB-JQU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="108" id="Z6X-U1-wIt"/>
+            </constraints>
+            <point key="canvasLocation" x="184" y="354"/>
+        </view>
+    </objects>
+</document>

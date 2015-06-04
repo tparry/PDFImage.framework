@@ -63,6 +63,8 @@
 		C3AED88618769B430035F18E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3AED88418769B430035F18E /* InfoPlist.strings */; };
 		C3AED88818769B430035F18E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AED88718769B430035F18E /* main.m */; };
 		C3AED88E18769B430035F18E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3AED88D18769B430035F18E /* Images.xcassets */; };
+		C3C925191B1FE290006E22D8 /* DemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C925181B1FE290006E22D8 /* DemoView.xib */; };
+		C3C9251F1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C9251E1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.m */; };
 		C3CBB31B1876F7ED007A9620 /* locale.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3191876F7ED007A9620 /* locale.pdf */; };
 		C3CBB31F1876F822007A9620 /* PDFLocalizedDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CBB31E1876F822007A9620 /* PDFLocalizedDemoViewController.m */; };
 		C3CBB3291876FE3A007A9620 /* extension1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C3CBB3261876FE3A007A9620 /* extension1.pdf */; };
@@ -181,6 +183,9 @@
 		C3AED88718769B430035F18E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3AED88D18769B430035F18E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3AED89418769B430035F18E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C3C925181B1FE290006E22D8 /* DemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoView.xib; sourceTree = "<group>"; };
+		C3C9251D1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDesignableDemoViewController.h; sourceTree = "<group>"; };
+		C3C9251E1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDesignableDemoViewController.m; sourceTree = "<group>"; };
 		C3CBB31A1876F7ED007A9620 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = es; path = es.lproj/locale.pdf; sourceTree = "<group>"; };
 		C3CBB31C1876F802007A9620 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = en; path = en.lproj/locale.pdf; sourceTree = "<group>"; };
 		C3CBB31D1876F822007A9620 /* PDFLocalizedDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFLocalizedDemoViewController.h; sourceTree = "<group>"; };
@@ -277,6 +282,8 @@
 				C3CBB31E1876F822007A9620 /* PDFLocalizedDemoViewController.m */,
 				C343B02C1893BB1B0048FE48 /* PDFBarButtonDemoViewController.h */,
 				C343B02D1893BB1B0048FE48 /* PDFBarButtonDemoViewController.m */,
+				C3C9251D1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.h */,
+				C3C9251E1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.m */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -408,6 +415,7 @@
 				C3AED88418769B430035F18E /* InfoPlist.strings */,
 				C3AED88718769B430035F18E /* main.m */,
 				C340C15019C0896900431A7D /* LaunchScreen.xib */,
+				C3C925181B1FE290006E22D8 /* DemoView.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -567,6 +575,7 @@
 				C32453101876A63100FBCF88 /* 10.pdf in Resources */,
 				C324530E1876A63100FBCF88 /* 8.pdf in Resources */,
 				C32453091876A63100FBCF88 /* 3.pdf in Resources */,
+				C3C925191B1FE290006E22D8 /* DemoView.xib in Resources */,
 				C3CBB31B1876F7ED007A9620 /* locale.pdf in Resources */,
 				C3CBB32B1876FE3A007A9620 /* extension3.PdF in Resources */,
 				C3CBB3291876FE3A007A9620 /* extension1.pdf in Resources */,
@@ -617,6 +626,7 @@
 				C32452F31876A2C100FBCF88 /* PDFDemoListViewController.m in Sources */,
 				C32452F91876A3A600FBCF88 /* PDFImageViewCell.m in Sources */,
 				C32453151876A9E200FBCF88 /* PDFAnimationDemoViewController.m in Sources */,
+				C3C9251F1B1FEAB7006E22D8 /* PDFDesignableDemoViewController.m in Sources */,
 				C3AED88818769B430035F18E /* main.m in Sources */,
 				C32452ED1876A29900FBCF88 /* PDFNavigationController.m in Sources */,
 				C32452EE1876A29900FBCF88 /* PDFViewController.m in Sources */,
