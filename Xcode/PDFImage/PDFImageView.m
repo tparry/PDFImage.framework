@@ -232,11 +232,18 @@
 			BOOL isDirectory;
 			if ([fileManager fileExistsAtPath:subpath isDirectory:&isDirectory] && isDirectory)
 			{
-				image = [self recursiveImageNamed:imageName inPath:subpath searchDepth:(depth - 1)];
-
-				if (image != nil)
+				const BOOL isImageAssetsDirectory = [filename.pathExtension isEqualToString:@"xcassets"];
+				
+				//	Currently PDFImage will not work with the compiled xcassets format (Assets.car),
+				//	don't include images in this folder
+				if (!isImageAssetsDirectory)
 				{
-					break;
+					image = [self recursiveImageNamed:imageName inPath:subpath searchDepth:(depth - 1)];
+					
+					if (image != nil)
+					{
+						break;
+					}
 				}
 			}
 		}
