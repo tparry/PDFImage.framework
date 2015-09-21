@@ -25,6 +25,8 @@
 //  For more information, please refer to <http://unlicense.org/>
 //
 
+#include "StaticFramework.xcconfig"
+
 SEPARATE_STRIP = YES
 STRIP_INSTALLED_PRODUCT = YES
 DEBUG_INFORMATION_FORMAT = stabs
