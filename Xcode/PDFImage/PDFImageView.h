@@ -31,6 +31,8 @@
 
 @interface PDFImageView : UIView
 
+- (instancetype)initWithImage:(PDFImage *)image;
+
 @property (nonatomic, strong) PDFImage *image;
 @property (nonatomic, copy) UIColor *tintColor;
 

@@ -61,6 +61,17 @@
 	return self;
 }
 
+- (instancetype)initWithImage:(PDFImage *)image {
+	self = [self initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
+
+	if (self != nil)
+	{
+		self.image = image;
+	}
+
+	return self;
+}
+
 #pragma mark -
 #pragma mark Super
 
@@ -95,6 +106,11 @@
 	//	Set the scale to that of the window's screen
 	//	The scale would only change if the image view is added to an external UIScreen
 	self.options.scale = newWindow.screen.scale;
+}
+
+- (void)sizeToFit
+{
+	self.bounds = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
 }
 
 + (Class)layerClass
