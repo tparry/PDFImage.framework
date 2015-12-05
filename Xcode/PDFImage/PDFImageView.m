@@ -109,9 +109,9 @@
 	self.options.scale = newWindow.screen.scale;
 }
 
-- (void)sizeToFit
+- (CGSize)sizeThatFits:(CGSize)size
 {
-	self.bounds = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
+	return self.image.size;
 }
 
 + (Class)layerClass
