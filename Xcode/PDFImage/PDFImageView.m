@@ -61,7 +61,8 @@
 	return self;
 }
 
-- (instancetype)initWithImage:(PDFImage *)image {
+- (instancetype)initWithImage:(PDFImage *)image
+{
 	self = [self initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
 
 	if (self != nil)
