@@ -160,73 +160,69 @@
 
 - (void)setAnimationImages:(NSArray<PDFImage *> *)animationImages
 {
-    if (self.isAnimating)
-    {
-        [self stopAnimating];
-    }
-    
-    if (animationImages.count > 0)
-    {
-        if (self.animationDuration == 0)
-        {
-            // if animation duration did not set before, then set it to number of images divided by 30
-            // same as default UIImageView animationDuration value
-            self.animationDuration = animationImages.count / 30.0;
-        }
-    }
-    
-    _animationImages = animationImages;
+	if (self.isAnimating)
+	{
+		[self stopAnimating];
+	}
+	
+	if (animationImages.count > 0)
+	{
+		if (self.animationDuration == 0)
+		{
+			// if animation duration did not set before, then set it to number of images divided by 30
+			// same as default UIImageView animationDuration value
+			self.animationDuration = animationImages.count / 30.0;
+		}
+	}
+	
+	_animationImages = animationImages;
 }
 
 - (void)startAnimating
 {
-    if (self.isAnimating)
-    {
-        [self stopAnimating];
-    }
-    
-    if (self.animationImages.count > 0)
-    {
-        __block NSUInteger imageNumber = 0;
-        __block NSUInteger repeated = 0;
-        
-        void (^changeImageBlock)() = ^{
-            
-            [self setImage:self.animationImages[imageNumber]];
-            
-            if (++imageNumber == self.animationImages.count)
-            {
-                imageNumber = 0;
-                repeated++;
-                
-                if (self.animationRepeatCount != 0 && repeated == self.animationRepeatCount)
-                {
-                    [self.animationTimer invalidate];
-                }
-            }
-        };
-        
-        NSTimeInterval intervalForChangeOneImage = self.animationDuration / self.animationImages.count;
-        
-        self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:intervalForChangeOneImage
-                                                               target:[NSBlockOperation blockOperationWithBlock:changeImageBlock]
-                                                             selector:@selector(main)
-                                                             userInfo:nil
-                                                              repeats:YES];
-    }
+	if (self.isAnimating)
+	{
+		[self stopAnimating];
+	}
+	
+	if (self.animationImages.count > 0)
+	{
+		__block NSUInteger imageNumber = 0;
+		__block NSUInteger repeated = 0;
+		
+		void (^changeImageBlock)() = ^{
+			
+			[self setImage:self.animationImages[imageNumber]];
+			
+			if (++imageNumber == self.animationImages.count)
+			{
+				imageNumber = 0;
+				repeated++;
+				
+				if (self.animationRepeatCount != 0 && repeated == self.animationRepeatCount)
+				{
+					[self.animationTimer invalidate];
+				}
+			}
+		};
+		
+		NSTimeInterval intervalForChangeOneImage = self.animationDuration / self.animationImages.count;
+		
+		self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:intervalForChangeOneImage target:[NSBlockOperation blockOperationWithBlock:changeImageBlock] selector:@selector(main) userInfo:nil repeats:YES];
+	}
 }
 
 - (void)stopAnimating
 {
-    [self.animationTimer invalidate];
+	[self.animationTimer invalidate];
 }
 
 - (BOOL)isAnimating
 {
-    if (self.animationTimer.isValid)
-        return YES;
-    else
-        return NO;
+	if (self.animationTimer.isValid)
+		return YES;
+	else
+		return NO;
 }
 
 @end
