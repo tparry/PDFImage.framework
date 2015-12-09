@@ -226,4 +226,15 @@
 		return NO;
 }
 
+#pragma mark -
+#pragma mark Cleanup
+
+- (void)dealloc
+{
+	if (self.isAnimating)
+	{
+		[self stopAnimating];
+	}
+}
+
 @end
