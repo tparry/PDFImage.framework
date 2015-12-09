@@ -189,19 +189,20 @@
 	{
 		__block NSUInteger imageNumber = 0;
 		__block NSUInteger repeated = 0;
+		__weak typeof(self) weakSelf = self;
 		
 		void (^changeImageBlock)() = ^{
 			
-			[self setImage:self.animationImages[imageNumber]];
+			[weakSelf setImage:weakSelf.animationImages[imageNumber]];
 			
-			if (++imageNumber == self.animationImages.count)
+			if (++imageNumber == weakSelf.animationImages.count)
 			{
 				imageNumber = 0;
 				repeated++;
 				
-				if (self.animationRepeatCount != 0 && repeated == self.animationRepeatCount)
+				if (weakSelf.animationRepeatCount != 0 && repeated == weakSelf.animationRepeatCount)
 				{
-					[self.animationTimer invalidate];
+					[weakSelf stopAnimating];
 				}
 			}
 		};
