@@ -39,4 +39,12 @@
 //	Returns the current UIImage based on frame, tint, etc etc
 @property (nonatomic, readonly) UIImage *currentUIImage;
 
+@property (nonatomic, copy) NSArray <PDFImage *> *animationImages;
+@property (nonatomic) NSTimeInterval animationDuration;
+@property (nonatomic) NSInteger animationRepeatCount;
+
+- (void)startAnimating;
+- (void)stopAnimating;
+- (BOOL)isAnimating;
+
 @end

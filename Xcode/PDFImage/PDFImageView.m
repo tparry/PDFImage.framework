@@ -38,6 +38,8 @@
 
 @property (nonatomic, readonly) UIImageView *imageView;
 
+@property (weak) NSTimer *animationTimer;
+
 @end
 
 @implementation PDFImageView
@@ -152,6 +154,87 @@
 	}
 
 	return nil;
+}
+
+#pragma mark -
+
+- (void)setAnimationImages:(NSArray<PDFImage *> *)animationImages
+{
+	if (self.isAnimating)
+	{
+		[self stopAnimating];
+	}
+	
+	if (animationImages.count > 0)
+	{
+		if (self.animationDuration == 0)
+		{
+			// if animation duration did not set before, then set it to number of images divided by 30
+			// same as default UIImageView animationDuration value
+			self.animationDuration = animationImages.count / 30.0;
+		}
+	}
+	
+	_animationImages = animationImages;
+}
+
+- (void)startAnimating
+{
+	if (self.isAnimating)
+	{
+		[self stopAnimating];
+	}
+	
+	if (self.animationImages.count > 0)
+	{
+		__block NSUInteger imageNumber = 0;
+		__block NSUInteger repeated = 0;
+		__weak typeof(self) weakSelf = self;
+		
+		void (^changeImageBlock)() = ^{
+			
+			[weakSelf setImage:weakSelf.animationImages[imageNumber]];
+			
+			if (++imageNumber == weakSelf.animationImages.count)
+			{
+				imageNumber = 0;
+				repeated++;
+				
+				if (weakSelf.animationRepeatCount != 0 && repeated == weakSelf.animationRepeatCount)
+				{
+					[weakSelf stopAnimating];
+				}
+			}
+		};
+		
+		NSTimeInterval intervalForChangeOneImage = self.animationDuration / self.animationImages.count;
+		
+		self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:intervalForChangeOneImage target:[NSBlockOperation blockOperationWithBlock:changeImageBlock] selector:@selector(main) userInfo:nil repeats:YES];
+	}
+}
+
+- (void)stopAnimating
+{
+	[self.animationTimer invalidate];
+}
+
+- (BOOL)isAnimating
+{
+	if (self.animationTimer.isValid)
+		return YES;
+	else
+		return NO;
+}
+
+#pragma mark -
+#pragma mark Cleanup
+
+- (void)dealloc
+{
+	if (self.isAnimating)
+	{
+		[self stopAnimating];
+	}
 }
 
 @end
